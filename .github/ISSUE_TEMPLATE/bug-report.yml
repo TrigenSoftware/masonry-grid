@@ -7,10 +7,6 @@ body:
     attributes:
       value: Thanks for taking the time to file a bug report! Please fill out this form as completely as possible.
 
-  - type: markdown
-    attributes:
-      value: ⚠️ react-chartjs-2 is just the wrapper around Chart.js, so if you are experiencing an issue with charts rendering, please create a related issue in [Chart.js repository](https://github.com/chartjs/Chart.js/issues).
-
   - type: checkboxes
     id: input1
     attributes:
@@ -36,9 +32,9 @@ body:
 
   - type: input
     attributes:
-      label: Package version
-      description: Which version of a package are you using?
-      placeholder: v0.0.0
+      label: Package
+      description: What package and version are you using?
+      placeholder: "@masonry-grid/vanilla@0.0.0"
     validations:
       required: true
 

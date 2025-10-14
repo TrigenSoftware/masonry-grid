@@ -5,9 +5,29 @@ on:
     branches:
       - main
 jobs:
+  list-workspaces:
+    runs-on: ubuntu-latest
+    name: list workspaces
+    outputs:
+      test-types: ${{ steps.set-matrix.outputs.test-types }}
+      lint: ${{ steps.set-matrix.outputs.lint }}
+      test-unit: ${{ steps.set-matrix.outputs.test-unit }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - id: set-matrix
+        run: node .github/workflows/list-workspaces.js test:types lint test:unit >> $GITHUB_OUTPUT
   types:
     runs-on: ubuntu-latest
-    name: types
+    needs: list-workspaces
+    strategy:
+      matrix:
+        workspace: ${{ fromJson(needs.list-workspaces.outputs.test-types) }}
+    name: ${{ matrix.workspace }} / types
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v5
@@ -23,10 +43,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Check types
-        run: pnpm test:types
+        run: pnpm --filter ${{ matrix.workspace }} --if-present test:types
   lint:
     runs-on: ubuntu-latest
-    name: lint
+    needs: list-workspaces
+    strategy:
+      matrix:
+        workspace: ${{ fromJson(needs.list-workspaces.outputs.lint) }}
+    name: ${{ matrix.workspace }} / lint
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v5
@@ -42,10 +66,14 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Lint files
-        run: pnpm lint
+        run: pnpm --filter ${{ matrix.workspace }} --if-present lint
   unit:
     runs-on: ubuntu-latest
-    name: unit
+    needs: list-workspaces
+    strategy:
+      matrix:
+        workspace: ${{ fromJson(needs.list-workspaces.outputs.test-unit) }}
+    name: ${{ matrix.workspace }} / unit
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v5
@@ -63,9 +91,11 @@ jobs:
       - name: Install Chrome for headless testing
         run: pnpm test:install-deps
       - name: Run tests
-        run: pnpm test:unit
+        run: pnpm --filter ${{ matrix.workspace }} --if-present test:unit
       - name: Collect coverage
         uses: codecov/codecov-action@v5
         if: success()
         with:
-          files: ./coverage/lcov.info
+          files: ./packages/${{ matrix.workspace }}/coverage/lcov.info
+          name: ${{ matrix.workspace }}
+          flags: ${{ matrix.workspace }}

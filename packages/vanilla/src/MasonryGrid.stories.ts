@@ -3,10 +3,10 @@ import {
   createContainer,
   createRandomFrames
 } from '../test/utils.mock.js'
-import { BalancedMasonryGrid } from './BalancedMasonryGrid.js'
+import { MasonryGrid } from './MasonryGrid.js'
 
 const meta: Meta = {
-  title: 'BalancedMasonryGrid',
+  title: 'MasonryGrid',
   parameters: {
     layout: 'padded'
   },
@@ -15,7 +15,7 @@ const meta: Meta = {
       control: {
         type: 'range',
         min: 3,
-        max: 50,
+        max: 100,
         step: 1
       },
       description: 'Number of items in the grid'
@@ -56,12 +56,12 @@ type Story = StoryObj
 
 function createGrid() {
   const container = createContainer()
-  let grid: BalancedMasonryGrid | undefined
+  let grid: MasonryGrid | undefined
 
   return (args: any) => {
     if (!grid) {
       void Promise.resolve().then(() => {
-        grid = new BalancedMasonryGrid(container)
+        grid = new MasonryGrid(container)
       })
     }
 

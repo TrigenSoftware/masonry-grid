@@ -4,9 +4,27 @@ on:
     branches:
       - main
 jobs:
+  list-workspaces:
+    runs-on: ubuntu-latest
+    name: list workspaces
+    outputs:
+      test-size: ${{ steps.set-matrix.outputs.test-size }}
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v5
+      - name: Install Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - id: set-matrix
+        run: node .github/workflows/list-workspaces.js test:size >> $GITHUB_OUTPUT
   size:
     runs-on: ubuntu-latest
-    name: size-limit
+    needs: list-workspaces
+    strategy:
+      matrix:
+        workspace: ${{ fromJson(needs.list-workspaces.outputs.test-size) }}
+    name: ${{ matrix.workspace }} / size-limit
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v5
@@ -24,6 +42,7 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           package_manager: pnpm
+          directory: packages/${{ matrix.workspace }}/
   editorconfig:
     runs-on: ubuntu-latest
     name: editorconfig
@@ -48,4 +67,4 @@ jobs:
           node-version: 22
           cache: 'pnpm'
       - name: Check package.json files
-        run: pnpm --package=@trigen/lint-package-json dlx lint-package-json --ignore examples
+        run: pnpm --package=@trigen/lint-package-json dlx lint-package-json --monorepo --ignore examples

@@ -16,7 +16,6 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    "noEmit": true,
     /* Interop Constraints */
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
@@ -27,14 +26,7 @@
       "dom"
     ],
     "target": "ESNext",
-    "allowJs": true,
     /* Completeness */
     "skipLibCheck": true
-  },
-  "include": [
-    "src",
-    "test",
-    ".storybook/**/*.ts",
-    "*.js"
-  ]
+  }
 }
