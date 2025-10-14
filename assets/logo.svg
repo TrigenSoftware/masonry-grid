@@ -1,0 +1,18 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="200" height="200" fill="#f8f9fa" rx="20"/>
+
+  <!-- Masonry Grid Pattern -->
+  <!-- Column 1 -->
+  <rect x="20" y="20" width="50" height="80" fill="#6366f1" rx="4"/>
+  <rect x="20" y="110" width="50" height="70" fill="#8b5cf6" rx="4"/>
+
+  <!-- Column 2 -->
+  <rect x="80" y="20" width="50" height="60" fill="#ec4899" rx="4"/>
+  <rect x="80" y="90" width="50" height="90" fill="#f43f5e" rx="4"/>
+
+  <!-- Column 3 -->
+  <rect x="140" y="20" width="40" height="70" fill="#f59e0b" rx="4"/>
+  <rect x="140" y="100" width="40" height="50" fill="#10b981" rx="4"/>
+  <rect x="140" y="160" width="40" height="20" fill="#06b6d4" rx="4"/>
+</svg>

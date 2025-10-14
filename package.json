@@ -1,18 +1,18 @@
 {
-  "name": "masonry-grid",
+  "name": "mason-grid",
   "type": "module",
   "version": "1.0.0",
   "description": "A fast, lightweight, and responsive masonry grid layout library in vanilla JavaScript.",
   "author": "dangreen",
   "license": "MIT",
-  "homepage": "https://github.com/TrigenSoftware/masonry-grid#readme",
+  "homepage": "https://github.com/TrigenSoftware/mason-grid#readme",
   "funding": "https://ko-fi.com/dangreen",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TrigenSoftware/masonry-grid.git"
+    "url": "https://github.com/TrigenSoftware/mason-grid.git"
   },
   "bugs": {
-    "url": "https://github.com/TrigenSoftware/masonry-grid/issues"
+    "url": "https://github.com/TrigenSoftware/mason-grid/issues"
   },
   "keywords": [
     "masonry",

@@ -1,4 +1,6 @@
-# Masonry Grid
+# Mason-Grid
+
+<img align="right" width="150" height="150" alt="Logo" src="assets/logo.svg">
 
 [![ESM-only package][package]][package-url]
 [![NPM version][npm]][npm-url]
@@ -9,24 +11,24 @@
 [package]: https://img.shields.io/badge/package-ESM--only-ffe536.svg
 [package-url]: https://nodejs.org/api/esm.html
 
-[npm]: https://img.shields.io/npm/v/masonry-grid.svg
-[npm-url]: https://npmjs.com/package/masonry-grid
+[npm]: https://img.shields.io/npm/v/mason-grid.svg
+[npm-url]: https://npmjs.com/package/mason-grid
 
-[size]: https://deno.bundlejs.com/badge?q=masonry-grid
-[size-url]: https://bundlejs.com/?q=masonry-grid
+[size]: https://deno.bundlejs.com/badge?q=mason-grid
+[size-url]: https://bundlejs.com/?q=mason-grid
 
-[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/masonry-grid/tests.yml?branch=main
-[build-url]: https://github.com/TrigenSoftware/masonry-grid/actions
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/mason-grid/tests.yml?branch=main
+[build-url]: https://github.com/TrigenSoftware/mason-grid/actions
 
-[coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/masonry-grid.svg
-[coverage-url]: https://app.codecov.io/gh/TrigenSoftware/masonry-grid
+[coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/mason-grid.svg
+[coverage-url]: https://app.codecov.io/gh/TrigenSoftware/mason-grid
 
 A fast, lightweight, and responsive masonry grid layout library in vanilla JavaScript.
 
-- **Lightweight**. ~1.4 kB (minified and brotlied). Zero dependencies.
-- **Fast**. Direct DOM manipulation with optimized reflow algorithms.
-- **Responsive**. Automatically adapts to container size changes using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
-- **TypeScript**-first.
+- 🪶 **Lightweight**. ~1.4 kB (minified and brotlied). Zero dependencies.
+- ⚡ **Fast**. Direct DOM manipulation with optimized reflow algorithms.
+- 📱 **Responsive**. Automatically adapts to container size changes using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
+- 📘 **TypeScript**-first.
 
 ```html
 <style>
@@ -66,7 +68,7 @@ A fast, lightweight, and responsive masonry grid layout library in vanilla JavaS
   </div>
 </div>
 <script type="module">
-import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/masonry-grid';
+import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/mason-grid';
 
 new BalancedMasonryGrid(document.querySelector('.masonry'));
 </script>
@@ -75,11 +77,11 @@ new BalancedMasonryGrid(document.querySelector('.masonry'));
 ## Install
 
 ```bash
-pnpm add masonry-grid
+pnpm add mason-grid
 # or
-npm i masonry-grid
+npm i mason-grid
 # or
-yarn add masonry-grid
+yarn add mason-grid
 ```
 
 ## API
@@ -93,7 +95,7 @@ The container must be CSS Grid and each item must have `--width` and `--height` 
 Standard masonry layout that stacks items by pulling them up to fill gaps.
 
 ```ts
-import { MasonryGrid } from 'masonry-grid'
+import { MasonryGrid } from 'mason-grid'
 
 const grid = new MasonryGrid(container)
 ```
@@ -103,7 +105,7 @@ const grid = new MasonryGrid(container)
 Balanced masonry layout that reorders items inside rows to minimize overall grid height.
 
 ```ts
-import { BalancedMasonryGrid } from 'masonry-grid'
+import { BalancedMasonryGrid } from 'mason-grid'
 
 const grid = new BalancedMasonryGrid(container)
 ```
@@ -122,6 +124,32 @@ grid.destroy()
 
 It uses ResizeObserver and MutationObserver to monitor changes to the container and its items. When a change is detected, it recalculates the layout using aspect ratios defined by `--width` and `--height` CSS variables on each item. Then it applies vertical translations using `transform: translateY()` to pull items up and fill gaps, while maintaining the natural order of items in the DOM. Because of we know the aspect ratios, and translate values are calculated in percentages, resizing the container without changing columns count does not require recalculating the layout.
 
+```html
+<div class="masonry" style="height: 589.651px;">
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 1; --height: 1;"></div>
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 1; --height: 1; transform: translateY(-33.3333%);"></div>
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 2; --height: 3; transform: translateY(-22.2222%);"></div>
+  <!-- ending div is added for internal calculations: -->
+  <div></div>
+</div>
+```
+
 ### BalancedMasonryGrid
 
 Same as MasonryGrid, plus it reorders items within each row to minimize overall grid height. It does this by calculating the optimal order of items in each row based on their heights and adjusting their `order` CSS property accordingly without changing order of items in the DOM.
+
+```html
+<div class="masonry" style="height: 405.228px;">
+  <div class="frame" style="--width: 1; --height: 1;"></div>
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 1; --height: 1;"></div>
+  <div class="frame" style="--width: 3; --height: 2; order: 3;"></div>
+  <div class="frame" style="--width: 1; --height: 1; order: 4; transform: translateY(-33.3333%);"></div>
+  <div class="frame" style="--width: 3; --height: 2; order: 5;"></div>
+  <!-- ending div is added for internal calculations: -->
+  <div style="order: 6;"></div>
+</div>
+```
