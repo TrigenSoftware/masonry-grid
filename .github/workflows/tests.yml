@@ -89,7 +89,7 @@ jobs:
       - name: Install dependencies
         run: pnpm install
       - name: Install Chrome for headless testing
-        run: pnpm test:install-deps
+        run: pnpm --filter ${{ matrix.workspace }} --if-present test:install-deps
       - name: Run tests
         run: pnpm --filter ${{ matrix.workspace }} --if-present test:unit
       - name: Collect coverage
