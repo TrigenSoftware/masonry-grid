@@ -13,7 +13,7 @@ import {
   createRandomFrames
 } from '../test/utils.mock.js'
 
-describe('mason-grid', () => {
+describe('@masonry-grid/vanilla', () => {
   describe('BalancedMasonryGrid', () => {
     let container: HTMLElement
     let grid: BalancedMasonryGrid

@@ -68,7 +68,7 @@ A fast, lightweight, and responsive masonry grid layout library in vanilla JavaS
   </div>
 </div>
 <script type="module">
-import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/mason-grid';
+import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla';
 
 new BalancedMasonryGrid(document.querySelector('.masonry'));
 </script>
@@ -77,11 +77,11 @@ new BalancedMasonryGrid(document.querySelector('.masonry'));
 ## Install
 
 ```bash
-pnpm add mason-grid
+pnpm add @masonry-grid/vanilla
 # or
-npm i mason-grid
+npm i @masonry-grid/vanilla
 # or
-yarn add mason-grid
+yarn add @masonry-grid/vanilla
 ```
 
 ## API
@@ -95,7 +95,7 @@ The container must be CSS Grid and each item must have `--width` and `--height` 
 Standard masonry layout that stacks items by pulling them up to fill gaps.
 
 ```ts
-import { MasonryGrid } from 'mason-grid'
+import { MasonryGrid } from '@masonry-grid/vanilla'
 
 const grid = new MasonryGrid(container)
 ```
@@ -105,7 +105,7 @@ const grid = new MasonryGrid(container)
 Balanced masonry layout that reorders items inside rows to minimize overall grid height.
 
 ```ts
-import { BalancedMasonryGrid } from 'mason-grid'
+import { BalancedMasonryGrid } from '@masonry-grid/vanilla'
 
 const grid = new BalancedMasonryGrid(container)
 ```
