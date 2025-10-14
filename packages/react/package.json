@@ -1,16 +1,16 @@
 {
-  "name": "@masonry-grid/vanilla",
+  "name": "@masonry-grid/react",
   "type": "module",
   "version": "1.0.0",
   "description": "A fast, lightweight, and responsive masonry grid layout library in vanilla JavaScript.",
   "author": "dangreen",
   "license": "MIT",
-  "homepage": "https://github.com/TrigenSoftware/masonry-grid/tree/main/packages/vanilla#readme",
+  "homepage": "https://github.com/TrigenSoftware/masonry-grid/tree/main/packages/react#readme",
   "funding": "https://ko-fi.com/dangreen",
   "repository": {
     "type": "git",
     "url": "https://github.com/TrigenSoftware/masonry-grid.git",
-    "directory": "packages/vanilla"
+    "directory": "packages/react"
   },
   "bugs": {
     "url": "https://github.com/TrigenSoftware/masonry-grid/issues"
@@ -23,7 +23,7 @@
     "responsive",
     "fast",
     "lightweight",
-    "vanilla"
+    "react"
   ],
   "engines": {
     "node": ">=16"
@@ -31,7 +31,7 @@
   "sideEffects": false,
   "exports": {
     "./package.json": "./package.json",
-    ".": "./src/index.ts"
+    ".": "./src/index.tsx"
   },
   "publishConfig": {
     "exports": {
@@ -65,18 +65,29 @@
     "test": "run -p lint test:unit test:types",
     "storybook": "storybook dev -p 6006 --no-open"
   },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0"
+  },
+  "dependencies": {
+    "@masonry-grid/vanilla": "workspace:^"
+  },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.2",
-    "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/html": "^8.6.14",
-    "@storybook/html-vite": "^8.6.14",
+    "@storybook/addon-essentials": "8.6.14",
+    "@storybook/react": "8.6.14",
+    "@storybook/react-vite": "8.6.14",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.3.0",
+    "@types/react": "^19.0.2",
+    "@vitejs/plugin-react": "^5.0.4",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.0.0",
     "playwright": "^1.56.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "size-limit": "^11.1.2",
-    "storybook": "^8.6.14",
+    "storybook": "8.6.14",
     "typescript": "^5.3.3",
     "vite": "^7.0.0",
     "vitest": "^3.0.0"

@@ -11,7 +11,7 @@ const meta: Meta = {
     layout: 'padded'
   },
   argTypes: {
-    itemCount: {
+    itemsCount: {
       control: {
         type: 'range',
         min: 3,
@@ -69,16 +69,16 @@ function createGrid() {
     container.style.setProperty('--gap', `${args.gap}px`)
     container.style.setProperty('--frame-width', `${args.frameWidth}px`)
 
-    const currentItemCount = Math.max(0, container.children.length - 1)
+    const currentItemsCount = Math.max(0, container.children.length - 1)
 
-    if (currentItemCount !== args.itemCount) {
-      if (currentItemCount < args.itemCount) {
-        const toAdd = args.itemCount - currentItemCount
+    if (currentItemsCount !== args.itemsCount) {
+      if (currentItemsCount < args.itemsCount) {
+        const toAdd = args.itemsCount - currentItemsCount
         const frames = createRandomFrames(toAdd)
 
         container.append(...frames)
       } else {
-        const toRemove = currentItemCount - args.itemCount
+        const toRemove = currentItemsCount - args.itemsCount
 
         for (let i = 0; i < toRemove; i++) {
           const frame = container.children[container.children.length - 2]
@@ -96,7 +96,7 @@ function createGrid() {
 
 export const Default: Story = {
   args: {
-    itemCount: 12,
+    itemsCount: 12,
     containerWidth: 100,
     gap: 10,
     frameWidth: 200
