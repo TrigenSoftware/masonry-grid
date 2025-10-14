@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    /* Type Checking */
+    "strict": true,
+    "strictBindCallApply": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    /* Modules */
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "resolveJsonModule": true,
+    /* Emit */
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "noEmit": true,
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    /* Language and Environment */
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "target": "ESNext",
+    "allowJs": true,
+    /* Completeness */
+    "skipLibCheck": true
+  },
+  "include": [
+    "src",
+    "test",
+    ".storybook/**/*.ts",
+    "*.js"
+  ]
+}

@@ -1,0 +1,3 @@
+{
+  "*.{c,m,}{js,ts}{x,}": "eslint --flag v10_config_lookup_from_file --fix"
+}

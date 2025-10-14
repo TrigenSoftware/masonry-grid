@@ -1,0 +1,12 @@
+{
+  "project": "@simple-release/pnpm#PnpmProject",
+  "releaser": {
+    "verbose": true
+  },
+  "pullRequest": {
+    "draft": true
+  },
+  "publish": {
+    "access": "public"
+  }
+}

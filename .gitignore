@@ -1,0 +1,33 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Test screenshots (created automatically on test failures)
+**/__screenshots__/
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# OS stuff
+._*
+.DS_Store
+
+# Some caches
+.*cache
+.trash
+
+# Compiled dist
+dist
+package
+build
+
+# Env files
+.env
+.env.local

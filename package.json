@@ -1,0 +1,96 @@
+{
+  "name": "masonry-grid",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A fast, lightweight, and responsive masonry grid layout library in vanilla JavaScript.",
+  "author": "dangreen",
+  "license": "MIT",
+  "homepage": "https://github.com/TrigenSoftware/masonry-grid#readme",
+  "funding": "https://ko-fi.com/dangreen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/masonry-grid.git"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/masonry-grid/issues"
+  },
+  "keywords": [
+    "masonry",
+    "grid",
+    "layout",
+    "masonry-grid",
+    "responsive",
+    "fast",
+    "lightweight",
+    "vanilla"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "sideEffects": false,
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "directory": "package",
+    "linkDirectory": false
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clear:package": "del ./package",
+    "clear:dist": "del ./dist",
+    "clear": "del ./package ./dist ./coverage",
+    "prepublishOnly": "run build clear:package clean-publish",
+    "postpublish": "pnpm clear:package",
+    "emitDeclarations": "tsc -p ./tsconfig.build.json --emitDeclarationOnly",
+    "build:dist": "run -p emitDeclarations [ vite build ]",
+    "build": "run clear:dist build:dist",
+    "lint": "eslint --flag v10_config_lookup_from_file",
+    "test:install-deps": "playwright install chromium",
+    "test:unit": "vitest run --coverage",
+    "test:unit:watch": "vitest watch",
+    "test:size": "size-limit",
+    "test:types": "tsc --noEmit",
+    "test": "run -p lint test:unit test:types",
+    "storybook": "storybook dev -p 6006 --no-open",
+    "commit": "cz",
+    "updateGitHooks": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@commitlint/cz-commitlint": "^19.8.1",
+    "@size-limit/preset-small-lib": "^11.1.2",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/html": "^8.6.14",
+    "@storybook/html-vite": "^8.6.14",
+    "@testing-library/dom": "^10.0.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@trigen/eslint-config": "^8.0.7",
+    "@trigen/scripts": "^8.0.4",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.0.0",
+    "clean-publish": "^5.0.0",
+    "commitizen": "^4.2.4",
+    "del-cli": "^6.0.0",
+    "eslint": "9.31.0",
+    "nano-staged": "^0.8.0",
+    "playwright": "^1.56.0",
+    "simple-git-hooks": "^2.13.1",
+    "size-limit": "^11.1.2",
+    "storybook": "^8.6.14",
+    "typescript": "^5.3.3",
+    "vite": "^7.0.0",
+    "vitest": "^3.0.0"
+  }
+}
