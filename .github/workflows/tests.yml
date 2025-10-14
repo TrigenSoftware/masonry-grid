@@ -14,7 +14,7 @@ jobs:
       test-unit: ${{ steps.set-matrix.outputs.test-unit }}
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
