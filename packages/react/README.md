@@ -155,8 +155,7 @@ import { MasonryGrid as VanillaMasonryGrid } from '@masonry-grid/vanilla'
 
 function CustomGrid() {
   const containerRef = useMasonryGrid<HTMLDivElement>({
-    type: VanillaMasonryGrid,
-    disabled: false
+    type: VanillaMasonryGrid
   })
 
   return (
