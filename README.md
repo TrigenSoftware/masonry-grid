@@ -9,11 +9,11 @@
 [package]: https://img.shields.io/badge/package-ESM--only-ffe536.svg
 [package-url]: https://nodejs.org/api/esm.html
 
-[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/mason-grid/tests.yml?branch=main
-[build-url]: https://github.com/TrigenSoftware/mason-grid/actions
+[build]: https://img.shields.io/github/actions/workflow/status/TrigenSoftware/masonry-grid/tests.yml?branch=main
+[build-url]: https://github.com/TrigenSoftware/masonry-grid/actions
 
-[coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/mason-grid.svg
-[coverage-url]: https://app.codecov.io/gh/TrigenSoftware/mason-grid
+[coverage]: https://img.shields.io/codecov/c/github/TrigenSoftware/masonry-grid.svg
+[coverage-url]: https://app.codecov.io/gh/TrigenSoftware/masonry-grid
 
 A fast, lightweight, and responsive masonry grid layout library.
 
