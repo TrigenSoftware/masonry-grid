@@ -30,7 +30,8 @@ function App() {
       >
         {items.map(({ width, height, backgroundColor }, i) => (
           <Frame
-            key={id}
+            key={i}
+            className='frame'
             width={width}
             height={height}
             style={{ backgroundColor }}
