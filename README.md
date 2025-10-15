@@ -34,13 +34,13 @@ A fast, lightweight, and responsive masonry grid layout library.
 [vanilla-npm]: https://img.shields.io/npm/v/%40masonry-grid%2Fvanilla.svg
 [vanilla-npm-url]: https://www.npmjs.com/package/@masonry-grid/vanilla
 
-[vanilla-size]: https://img.shields.io/bundlephobia/minzip/%40masonry-grid%2Fvanilla
-[vanilla-size-url]: https://bundlephobia.com/package/@masonry-grid/vanilla
+[vanilla-size]: https://deno.bundlejs.com/badge?q=%40masonry-grid%2Fvanilla
+[vanilla-size-url]: https://bundlejs.com/?q=%40masonry-grid%2Fvanilla
 
 <!-- react -->
 
 [react-npm]: https://img.shields.io/npm/v/%40masonry-grid%2Freact.svg
 [react-npm-url]: https://www.npmjs.com/package/@masonry-grid/react
 
-[react-size]: https://img.shields.io/bundlephobia/minzip/%40masonry-grid%2Freact
-[react-size-url]: https://bundlephobia.com/package/@masonry-grid/react
+[react-size]: https://deno.bundlejs.com/badge?q=%40masonry-grid%2Freact
+[react-size-url]: https://bundlejs.com/?q=%40masonry-grid%2Freact
