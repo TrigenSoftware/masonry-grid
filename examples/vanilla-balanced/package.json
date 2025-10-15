@@ -1,5 +1,8 @@
 {
   "scripts": {
-    "dev": "npx serve ."
+    "dev": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
   }
 }
