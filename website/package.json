@@ -1,0 +1,36 @@
+{
+  "name": "website",
+  "type": "module",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Documentation website for Masonry Grid library.",
+  "author": "dangreen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/masonry-grid.git",
+    "directory": "website"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/masonry-grid/issues"
+  },
+  "scripts": {
+    "clear": "del ./.astro ./dist",
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint --flag v10_config_lookup_from_file"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/starlight": "^0.35.2",
+    "astro": "^5.0.0",
+    "astro-vtbot": "^2.1.9",
+    "sharp": "^0.33.5",
+    "starlight-llms-txt": "^0.6.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

@@ -1,0 +1,41 @@
+---
+title: How It Works
+description: Explanation of Masonry Grid layout algorithms
+sidebar:
+  order: 3
+---
+
+## MasonryGrid
+
+It uses [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) and [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) to monitor changes to the container and its items. When a change is detected, it recalculates the layout using aspect ratios defined by `--width` and `--height` CSS variables on each item. Then it applies vertical translations using `transform: translateY()` to pull items up and fill gaps, while maintaining the natural order of items in the DOM. Because of we know the aspect ratios, and translate values are calculated in percentages, resizing the container without changing columns count does not require recalculating the layout.
+
+```html
+<div class="masonry" style="height: 589.651px;">
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 1; --height: 1;"></div>
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 1; --height: 1; transform: translateY(-33.3333%);"></div>
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 2; --height: 3; transform: translateY(-22.2222%);"></div>
+  <!-- ending div is added for internal calculations: -->
+  <div></div>
+</div>
+```
+
+## BalancedMasonryGrid
+
+Same as MasonryGrid, plus it reorders items within each row to minimize overall grid height. It does this by calculating the optimal order of items in each row based on their heights and adjusting their `order` CSS property accordingly without changing order of items in the DOM.
+
+```html
+<div class="masonry" style="height: 405.228px;">
+  <div class="frame" style="--width: 1; --height: 1;"></div>
+  <div class="frame" style="--width: 3; --height: 2;"></div>
+  <div class="frame" style="--width: 1; --height: 1;"></div>
+  <div class="frame" style="--width: 3; --height: 2; order: 3;"></div>
+  <div class="frame" style="--width: 1; --height: 1; order: 4; transform: translateY(-33.3333%);"></div>
+  <div class="frame" style="--width: 3; --height: 2; order: 5;"></div>
+  <!-- ending div is added for internal calculations: -->
+  <div style="order: 6;"></div>
+</div>
+```
+

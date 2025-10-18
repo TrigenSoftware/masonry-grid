@@ -1,5 +1,7 @@
 packages:
   - packages/*
+  - website
 onlyBuiltDependencies:
   - esbuild
+  - sharp
   - simple-git-hooks

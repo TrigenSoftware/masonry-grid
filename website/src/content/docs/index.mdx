@@ -1,0 +1,43 @@
+---
+title: Masonry Grid
+description: A fast, lightweight, and responsive masonry grid layout library.
+head:
+  - tag: title
+    content: Masonry Grid
+template: splash
+editUrl: false
+hero:
+  tagline: A fast, lightweight, and responsive masonry grid layout library.
+  image:
+    file: ../../assets/logo.svg
+  actions:
+    - text: Get Started
+      link: ./getting-started
+      icon: right-arrow
+    - text: Examples
+      link: ./examples
+      icon: right-arrow
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components'
+
+## Features
+
+<CardGrid stagger>
+  <Card title='Lightweight' icon='seti:maven'>
+    ~1.4 kB (minified and brotlied). Zero dependencies.
+  </Card>
+  <Card title='Fast' icon='rocket'>
+    Direct DOM manipulation with optimized reflow algorithms.
+  </Card>
+  <Card title='Responsive' icon='phone'>
+    Automatically adapts to container size changes.
+  </Card>
+  <Card title='TypeScript' icon='seti:tsconfig'>
+    TypeScript-first with type definitions included.
+  </Card>
+  <Card title='Framework Support' icon='seti:react'>
+    First-class support for React.
+  </Card>
+</CardGrid>

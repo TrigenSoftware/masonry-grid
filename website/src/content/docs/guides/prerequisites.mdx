@@ -1,0 +1,58 @@
+---
+title: Prerequisites
+description: Prerequisites for using Masonry Grid
+sidebar:
+  order: 1
+---
+
+import { Aside } from '@astrojs/starlight/components'
+
+<Aside type='note'>
+  If you are using Masonry Grid with framework wrapper, this section is optional as the wrapper components already contain the necessary setup.
+</Aside>
+
+The container must be CSS Grid and each item must have `--width` and `--height` CSS variables to define aspect ratio and should maintain this aspect ratio, for example using the CSS `aspect-ratio` property.
+
+```html
+<style>
+.masonry {
+  /* Required styles */
+  display: grid;
+  overflow: hidden;
+  /* Optional styles */
+  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+.frame {
+  /* Required styles */
+  aspect-ratio: var(--width) / var(--height);
+}
+</style>
+<div class="masonry">
+  <!-- Each item must have aspect-ratio set by --width and --height CSS variables -->
+  <div class="frame" style="--width: 4; --height: 3;">
+    <img src="https://picsum.photos/400/300" />
+  </div>
+  <div class="frame" style="--width: 1; --height: 1;">
+    <img src="https://picsum.photos/200/200" />
+  </div>
+  <div class="frame" style="--width: 3; --height: 4;">
+    <img src="https://picsum.photos/300/400" />
+  </div>
+  <div class="frame" style="--width: 3; --height: 4;">
+    <img src="https://picsum.photos/300/400" />
+  </div>
+  <div class="frame" style="--width: 1; --height: 1;">
+    <img src="https://picsum.photos/200/200" />
+  </div>
+  <div class="frame" style="--width: 4; --height: 3;">
+    <img src="https://picsum.photos/400/300" />
+  </div>
+</div>
+<script type="module">
+import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
+
+new BalancedMasonryGrid(document.querySelector('.masonry'))
+</script>
+```

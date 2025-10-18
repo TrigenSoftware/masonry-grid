@@ -7,6 +7,7 @@ export default [
   globalIgnores([
     '**/dist/',
     '**/package/',
+    '**/.astro/',
     './examples/**'
   ]),
   ...baseConfig,
