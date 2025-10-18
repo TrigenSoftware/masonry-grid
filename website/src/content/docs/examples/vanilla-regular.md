@@ -6,9 +6,9 @@ sidebar:
 ---
 
 <iframe
-  src="https://stackblitz.com/github/TrigenSoftware/masonry-grid/tree/main/examples/vanilla-basic?embed=1&file=main.js&view=preview"
+  src="https://stackblitz.com/github/TrigenSoftware/masonry-grid/tree/main/examples/vanilla-regular?embed=1&file=main.js&view=preview"
   style="width: 100%; height: 500px; border: 0; border-radius: 4px; overflow: hidden;"
-  title="Masonry Grid - Vanilla Basic Example"
+  title="Masonry Grid - Vanilla Regular Example"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
