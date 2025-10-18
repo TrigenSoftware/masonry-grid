@@ -4,8 +4,7 @@ import llmsTxt from 'starlight-llms-txt'
 import { viewTransitions } from 'astro-vtbot/starlight-view-transitions'
 
 export default defineConfig({
-  site: 'https://trigensoftware.github.io',
-  base: '/masonry-grid',
+  site: 'https://masonry-grid.js.org',
   integrations: [
     starlight({
       title: 'Masonry Grid',
@@ -14,6 +13,16 @@ export default defineConfig({
         src: './src/assets/logo.svg'
       },
       favicon: '/favicon.ico',
+      head: [
+        {
+          tag: 'script',
+          attrs: {
+            'src': 'https://cloud.umami.is/script.js',
+            'data-website-id': 'cc85009f-3dcf-4cf0-a2e3-f74066dce2e4',
+            'defer': true
+          }
+        }
+      ],
       social: [
         {
           label: 'GitHub',
