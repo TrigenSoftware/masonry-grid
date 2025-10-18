@@ -8,6 +8,7 @@ export default defineConfig({
   integrations: [
     starlight({
       title: 'Masonry Grid',
+      titleDelimiter: '⭐️',
       description: 'A fast, lightweight, and responsive masonry grid layout library.',
       logo: {
         src: './src/assets/logo.svg'
