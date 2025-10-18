@@ -9,6 +9,7 @@ jobs:
     name: list workspaces
     outputs:
       test-size: ${{ steps.set-matrix.outputs.test-size }}
+      build-storybook: ${{ steps.set-matrix.outputs.build-storybook }}
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v5
@@ -17,7 +18,7 @@ jobs:
         with:
           node-version: 22
       - id: set-matrix
-        run: node .github/workflows/list-workspaces.js test:size >> $GITHUB_OUTPUT
+        run: node .github/workflows/list-workspaces.js test:size build:storybook >> $GITHUB_OUTPUT
   size:
     runs-on: ubuntu-latest
     needs: list-workspaces
@@ -68,3 +69,45 @@ jobs:
           cache: 'pnpm'
       - name: Check package.json files
         run: pnpm --package=@trigen/lint-package-json dlx lint-package-json --monorepo --ignore examples
+  storybook:
+    runs-on: ubuntu-latest
+    needs: list-workspaces
+    strategy:
+      matrix:
+        workspace: ${{ fromJson(needs.list-workspaces.outputs.build-storybook) }}
+    name: ${{ matrix.workspace }} / storybook
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v5
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Install Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Check storybook
+        run: pnpm --filter ${{ matrix.workspace }} --if-present build:storybook
+  website:
+    runs-on: ubuntu-latest
+    name: website
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v5
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Install Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Check website
+        run: pnpm docs:build

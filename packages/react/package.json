@@ -56,6 +56,7 @@
     "emitDeclarations": "tsc -p ./tsconfig.build.json --emitDeclarationOnly",
     "build:dist": "run -p emitDeclarations [ vite build ]",
     "build": "run clear:dist build:dist",
+    "build:storybook": "storybook build",
     "lint": "eslint --flag v10_config_lookup_from_file",
     "test:install-deps": "playwright install chromium",
     "test:unit": "vitest run --coverage",

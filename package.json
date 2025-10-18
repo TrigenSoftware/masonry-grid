@@ -20,12 +20,15 @@
   },
   "scripts": {
     "clear": "pnpm -r --parallel clear",
-    "build": "pnpm -r --parallel build",
+    "build": "pnpm -r --parallel --filter \\!website build",
     "lint": "pnpm -r --parallel --if-present lint",
     "test:unit": "pnpm -r --parallel --if-present test:unit",
     "test:size": "pnpm -r --parallel --if-present test:size",
     "test:types": "pnpm -r --parallel --if-present test:types",
     "test": "run -p lint test:unit test:types",
+    "docs:dev": "pnpm --filter website dev",
+    "docs:build": "pnpm --filter website build",
+    "docs:preview": "pnpm --filter website preview",
     "commit": "cz",
     "updateGitHooks": "simple-git-hooks"
   },

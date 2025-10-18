@@ -1,6 +1,6 @@
 # Masonry Grid
 
-<img align="right" width="150" height="150" alt="Logo" src="assets/logo.svg">
+<img align="right" width="150" height="150" alt="Logo" src="website/src/assets/logo.svg">
 
 [![ESM-only package][package]][package-url]
 [![Build status][build]][build-url]

@@ -1,0 +1,159 @@
+---
+title: Getting Started
+description: How to install and start use Masonry Grid
+---
+
+import { Steps, Tabs, TabItem, Code } from '@astrojs/starlight/components'
+
+Masonry Grid is a fast, lightweight, and responsive masonry grid layout library. This guide will help you get started with Masonry Grid in your project.
+
+## Installation
+
+<Tabs syncKey='framework'>
+  <TabItem label='Vanilla JS' icon='seti:javascript'>
+
+    <Steps>
+
+    1. Install package by running the following command in your terminal:
+
+        <Tabs syncKey='pkg'>
+          <TabItem label='pnpm' icon='pnpm'>
+            <Code frame='none' lang='bash' code='pnpm add @masonry-grid/vanilla' />
+          </TabItem>
+          <TabItem label='Yarn' icon='seti:yarn'>
+            <Code frame='none' lang='sh' code='yarn add @masonry-grid/vanilla' />
+          </TabItem>
+          <TabItem label='npm' icon='seti:npm'>
+            <Code frame='none' lang='sh' code='npm install @masonry-grid/vanilla' />
+          </TabItem>
+        </Tabs>
+
+        or use a CDN:
+
+        ```js
+        import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
+        ```
+
+    2. Now you can import constructor and start using it in your project:
+
+        <Tabs>
+          <TabItem label='HTML' icon='seti:html'>
+
+            ```html
+            <div class="masonry">
+              <!-- Each item must have aspect-ratio set by --width and --height CSS variables -->
+              <div class="frame" style="--width: 4; --height: 3;">
+                <img src="https://picsum.photos/400/300" />
+              </div>
+              <div class="frame" style="--width: 1; --height: 1;">
+                <img src="https://picsum.photos/200/200" />
+              </div>
+              <div class="frame" style="--width: 3; --height: 4;">
+                <img src="https://picsum.photos/300/400" />
+              </div>
+              <div class="frame" style="--width: 3; --height: 4;">
+                <img src="https://picsum.photos/300/400" />
+              </div>
+              <div class="frame" style="--width: 1; --height: 1;">
+                <img src="https://picsum.photos/200/200" />
+              </div>
+              <div class="frame" style="--width: 4; --height: 3;">
+                <img src="https://picsum.photos/400/300" />
+              </div>
+            </div>
+            ```
+
+          </TabItem>
+          <TabItem label='CSS' icon='seti:css'>
+
+            ```css
+            .masonry {
+              /* Required styles */
+              display: grid;
+              overflow: hidden;
+              /* Optional styles */
+              gap: 10px;
+              grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+
+            .frame {
+              /* Required styles */
+              aspect-ratio: var(--width) / var(--height);
+            }
+            ```
+
+          </TabItem>
+          <TabItem label='JS' icon='seti:javascript'>
+
+            ```js
+            import { BalancedMasonryGrid } from '@masonry-grid/vanilla'
+
+            new BalancedMasonryGrid(document.querySelector('.masonry'))
+            ```
+
+          </TabItem>
+        </Tabs>
+
+    3. Run your application and see the masonry grid in action!
+
+    </Steps>
+
+  </TabItem>
+  <TabItem label='React' icon='seti:react'>
+
+    <Steps>
+
+    1. Install package by running the following command in your terminal:
+
+        <Tabs syncKey='pkg'>
+          <TabItem label='pnpm' icon='pnpm'>
+            <Code frame='none' lang='bash' code='pnpm add @masonry-grid/react' />
+          </TabItem>
+          <TabItem label='Yarn' icon='seti:yarn'>
+            <Code frame='none' lang='sh' code='yarn add @masonry-grid/react' />
+          </TabItem>
+          <TabItem label='npm' icon='seti:npm'>
+            <Code frame='none' lang='sh' code='npm install @masonry-grid/react' />
+          </TabItem>
+        </Tabs>
+
+    2. Now you can import the components and start using them in your React project:
+
+        ```tsx
+        import { BalancedMasonryGrid, Frame } from '@masonry-grid/react'
+
+        function Gallery() {
+          return (
+            <BalancedMasonryGrid
+              frameWidth={200}
+              gap={10}
+            >
+              <Frame width={4} height={3}>
+                <img src='https://picsum.photos/400/300' alt='Photo 1' />
+              </Frame>
+              <Frame width={1} height={1}>
+                <img src='https://picsum.photos/200/200' alt='Photo 2' />
+              </Frame>
+              <Frame width={3} height={4}>
+                <img src='https://picsum.photos/300/400' alt='Photo 3' />
+              </Frame>
+              <Frame width={3} height={4}>
+                <img src='https://picsum.photos/300/400' alt='Photo 4' />
+              </Frame>
+              <Frame width={1} height={1}>
+                <img src='https://picsum.photos/200/200' alt='Photo 5' />
+              </Frame>
+              <Frame width={4} height={3}>
+                <img src='https://picsum.photos/400/300' alt='Photo 6' />
+              </Frame>
+            </BalancedMasonryGrid>
+          )
+        }
+        ```
+
+    3. Run your React application and see the masonry grid in action!
+
+    </Steps>
+
+  </TabItem>
+</Tabs>
