@@ -33,10 +33,10 @@
     "updateGitHooks": "simple-git-hooks"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@commitlint/config-pnpm-scopes": "^19.8.1",
-    "@commitlint/cz-commitlint": "^19.8.1",
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@commitlint/config-pnpm-scopes": "^20.0.0",
+    "@commitlint/cz-commitlint": "^20.0.0",
     "@trigen/eslint-config": "^8.0.7",
     "@trigen/scripts": "^8.0.4",
     "clean-publish": "^5.0.0",
