@@ -68,9 +68,9 @@ A fast, lightweight, and responsive masonry grid layout library in vanilla JavaS
   </div>
 </div>
 <script type="module">
-import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla';
+import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
 
-new BalancedMasonryGrid(document.querySelector('.masonry'));
+new BalancedMasonryGrid(document.querySelector('.masonry'))
 </script>
 ```
 
@@ -86,7 +86,7 @@ yarn add @masonry-grid/vanilla
 
 ## API
 
-### Prerequirements
+### Prerequisites
 
 The container must be CSS Grid and each item must have `--width` and `--height` CSS variables to define aspect ratio and should maintain this aspect ratio, for example using the CSS `aspect-ratio` property.
 
@@ -122,7 +122,7 @@ grid.destroy()
 
 ### MasonryGrid
 
-It uses ResizeObserver and MutationObserver to monitor changes to the container and its items. When a change is detected, it recalculates the layout using aspect ratios defined by `--width` and `--height` CSS variables on each item. Then it applies vertical translations using `transform: translateY()` to pull items up and fill gaps, while maintaining the natural order of items in the DOM. Because of we know the aspect ratios, and translate values are calculated in percentages, resizing the container without changing columns count does not require recalculating the layout.
+It uses [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) and [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) to monitor changes to the container and its items. When a change is detected, it recalculates the layout using aspect ratios defined by `--width` and `--height` CSS variables on each item. Then it applies vertical translations using `transform: translateY()` to pull items up and fill gaps, while maintaining the natural order of items in the DOM. Because of we know the aspect ratios, and translate values are calculated in percentages, resizing the container without changing columns count does not require recalculating the layout.
 
 ```html
 <div class="masonry" style="height: 589.651px;">

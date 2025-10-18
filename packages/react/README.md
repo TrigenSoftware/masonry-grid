@@ -40,22 +40,22 @@ function Gallery() {
       gap={10}
     >
       <Frame width={4} height={3}>
-        <img src="https://picsum.photos/400/300" alt="Photo 1" />
+        <img src='https://picsum.photos/400/300' alt='Photo 1' />
       </Frame>
       <Frame width={1} height={1}>
-        <img src="https://picsum.photos/200/200" alt="Photo 2" />
+        <img src='https://picsum.photos/200/200' alt='Photo 2' />
       </Frame>
       <Frame width={3} height={4}>
-        <img src="https://picsum.photos/300/400" alt="Photo 3" />
+        <img src='https://picsum.photos/300/400' alt='Photo 3' />
       </Frame>
       <Frame width={3} height={4}>
-        <img src="https://picsum.photos/300/400" alt="Photo 4" />
+        <img src='https://picsum.photos/300/400' alt='Photo 4' />
       </Frame>
       <Frame width={1} height={1}>
-        <img src="https://picsum.photos/200/200" alt="Photo 5" />
+        <img src='https://picsum.photos/200/200' alt='Photo 5' />
       </Frame>
       <Frame width={4} height={3}>
-        <img src="https://picsum.photos/400/300" alt="Photo 6" />
+        <img src='https://picsum.photos/400/300' alt='Photo 6' />
       </Frame>
     </BalancedMasonryGrid>
   )
@@ -86,7 +86,7 @@ import { MasonryGrid, Frame } from '@masonry-grid/react'
   gap={10}
 >
   <Frame width={4} height={3}>
-    <img src="..." />
+    <img src='...' />
   </Frame>
   {/* more frames... */}
 </MasonryGrid>
@@ -112,7 +112,7 @@ import { BalancedMasonryGrid, Frame } from '@masonry-grid/react'
   gap={10}
 >
   <Frame width={4} height={3}>
-    <img src="..." />
+    <img src='...' />
   </Frame>
   {/* more frames... */}
 </BalancedMasonryGrid>
@@ -132,9 +132,9 @@ import { Frame } from '@masonry-grid/react'
 <Frame
   width={16}
   height={9}
-  as="li"
+  as='li'
 >
-  <img src="..." />
+  <img src='...' />
 </Frame>
 ```
 
