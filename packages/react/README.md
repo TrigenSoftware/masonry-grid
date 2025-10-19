@@ -30,6 +30,8 @@ A fast, lightweight, and responsive masonry grid layout library for React.
 - 📱 **Responsive**. Automatically adapts to container size changes using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
 - 📘 **TypeScript**-first.
 
+_Read the docs and explore examples at [masonry-grid.js.org](https://masonry-grid.js.org)_
+
 ```tsx
 import { BalancedMasonryGrid, Frame } from '@masonry-grid/react'
 
@@ -72,103 +74,8 @@ npm i @masonry-grid/react
 yarn add @masonry-grid/react
 ```
 
-## API
+## Docs
 
-### MasonryGrid
-
-Standard masonry layout that stacks items by pulling them up to fill gaps.
-
-```tsx
-import { MasonryGrid, Frame } from '@masonry-grid/react'
-
-<MasonryGrid
-  frameWidth={200}
-  gap={10}
->
-  <Frame width={4} height={3}>
-    <img src='...' />
-  </Frame>
-  {/* more frames... */}
-</MasonryGrid>
-```
-
-#### Props
-
-- `frameWidth?: number | string` - Minimum width of each frame. Used to calculate `grid-template-columns`. Can be a number (px) or string with units.
-- `gap?: number | string` - Gap between items. Can be a number (px) or string with units.
-- `disabled?: boolean` - Disable the masonry layout (no transforms/reordering will be applied).
-- `as?: ElementType` - Render as a different element (default: `'div'`).
-- All other HTML attributes are passed through.
-
-### BalancedMasonryGrid
-
-Balanced masonry layout that reorders items inside rows to minimize overall grid height.
-
-```tsx
-import { BalancedMasonryGrid, Frame } from '@masonry-grid/react'
-
-<BalancedMasonryGrid
-  frameWidth={200}
-  gap={10}
->
-  <Frame width={4} height={3}>
-    <img src='...' />
-  </Frame>
-  {/* more frames... */}
-</BalancedMasonryGrid>
-```
-
-#### Props
-
-Same as `MasonryGrid`.
-
-### Frame
-
-Component for defining masonry grid item with aspect ratio.
-
-```tsx
-import { Frame } from '@masonry-grid/react'
-
-<Frame
-  width={16}
-  height={9}
-  as='li'
->
-  <img src='...' />
-</Frame>
-```
-
-#### Props
-
-- `width: number` - Width for aspect ratio calculation (not necessarily real pixel width).
-- `height: number` - Height for aspect ratio calculation (not necessarily real pixel height).
-- `as?: ElementType` - Render as a different element (default: `'div'`).
-- All other HTML attributes are passed through.
-
-### useMasonryGrid
-
-Hook for advanced use cases when you need direct access to the masonry grid instance.
-
-```tsx
-import { useMasonryGrid } from '@masonry-grid/react'
-import { MasonryGrid as VanillaMasonryGrid } from '@masonry-grid/vanilla'
-
-function CustomGrid() {
-  const containerRef = useMasonryGrid<HTMLDivElement>({
-    type: VanillaMasonryGrid
-  })
-
-  return (
-    <div
-      ref={containerRef}
-      style={{
-        display: 'grid',
-        overflow: 'hidden',
-        gap: '10px'
-      }}
-    >
-      {/* children */}
-    </div>
-  )
-}
-```
+- [Guides](https://masonry-grid.js.org/guides/prerequisites/)
+- [API Reference](https://masonry-grid.js.org/api/react/)
+- [Examples](https://masonry-grid.js.org/examples/#react)

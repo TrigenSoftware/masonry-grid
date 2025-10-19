@@ -22,6 +22,8 @@ A fast, lightweight, and responsive masonry grid layout library.
 - 📱 **Responsive**. Automatically adapts to container size changes using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
 - 📘 **TypeScript**-first.
 
+_Read the docs and explore examples at [masonry-grid.js.org](https://masonry-grid.js.org)_
+
 ## Packages
 
 | Package | Version | Size |

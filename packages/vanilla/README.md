@@ -30,6 +30,8 @@ A fast, lightweight, and responsive masonry grid layout library in vanilla JavaS
 - 📱 **Responsive**. Automatically adapts to container size changes using [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver).
 - 📘 **TypeScript**-first.
 
+_Read the docs and explore examples at [masonry-grid.js.org](https://masonry-grid.js.org)_
+
 ```html
 <style>
 .masonry {
@@ -84,72 +86,8 @@ npm i @masonry-grid/vanilla
 yarn add @masonry-grid/vanilla
 ```
 
-## API
+## Docs
 
-### Prerequisites
-
-The container must be CSS Grid and each item must have `--width` and `--height` CSS variables to define aspect ratio and should maintain this aspect ratio, for example using the CSS `aspect-ratio` property.
-
-### MasonryGrid
-
-Standard masonry layout that stacks items by pulling them up to fill gaps.
-
-```ts
-import { MasonryGrid } from '@masonry-grid/vanilla'
-
-const grid = new MasonryGrid(container)
-```
-
-### BalancedMasonryGrid
-
-Balanced masonry layout that reorders items inside rows to minimize overall grid height.
-
-```ts
-import { BalancedMasonryGrid } from '@masonry-grid/vanilla'
-
-const grid = new BalancedMasonryGrid(container)
-```
-
-### `#destroy()`
-
-Both `MasonryGrid` and `BalancedMasonryGrid` have `destroy()` method that destroys the grid instance and cleans up all observers and styles.
-
-```ts
-grid.destroy()
-```
-
-## How It Works
-
-### MasonryGrid
-
-It uses [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) and [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) to monitor changes to the container and its items. When a change is detected, it recalculates the layout using aspect ratios defined by `--width` and `--height` CSS variables on each item. Then it applies vertical translations using `transform: translateY()` to pull items up and fill gaps, while maintaining the natural order of items in the DOM. Because of we know the aspect ratios, and translate values are calculated in percentages, resizing the container without changing columns count does not require recalculating the layout.
-
-```html
-<div class="masonry" style="height: 589.651px;">
-  <div class="frame" style="--width: 3; --height: 2;"></div>
-  <div class="frame" style="--width: 1; --height: 1;"></div>
-  <div class="frame" style="--width: 3; --height: 2;"></div>
-  <div class="frame" style="--width: 1; --height: 1; transform: translateY(-33.3333%);"></div>
-  <div class="frame" style="--width: 3; --height: 2;"></div>
-  <div class="frame" style="--width: 2; --height: 3; transform: translateY(-22.2222%);"></div>
-  <!-- ending div is added for internal calculations: -->
-  <div></div>
-</div>
-```
-
-### BalancedMasonryGrid
-
-Same as MasonryGrid, plus it reorders items within each row to minimize overall grid height. It does this by calculating the optimal order of items in each row based on their heights and adjusting their `order` CSS property accordingly without changing order of items in the DOM.
-
-```html
-<div class="masonry" style="height: 405.228px;">
-  <div class="frame" style="--width: 1; --height: 1;"></div>
-  <div class="frame" style="--width: 3; --height: 2;"></div>
-  <div class="frame" style="--width: 1; --height: 1;"></div>
-  <div class="frame" style="--width: 3; --height: 2; order: 3;"></div>
-  <div class="frame" style="--width: 1; --height: 1; order: 4; transform: translateY(-33.3333%);"></div>
-  <div class="frame" style="--width: 3; --height: 2; order: 5;"></div>
-  <!-- ending div is added for internal calculations: -->
-  <div style="order: 6;"></div>
-</div>
-```
+- [Guides](https://masonry-grid.js.org/guides/prerequisites/)
+- [API Reference](https://masonry-grid.js.org/api/vanilla/)
+- [Examples](https://masonry-grid.js.org/examples/#vanilla-javascript)

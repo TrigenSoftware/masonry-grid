@@ -5,7 +5,7 @@
   "description": "A fast, lightweight, and responsive masonry grid layout library in vanilla JavaScript.",
   "author": "dangreen",
   "license": "MIT",
-  "homepage": "https://github.com/TrigenSoftware/masonry-grid/tree/main/packages/vanilla#readme",
+  "homepage": "https://masonry-grid.js.org",
   "funding": "https://ko-fi.com/dangreen",
   "repository": {
     "type": "git",
