@@ -1,7 +1,7 @@
 {
   "name": "@masonry-grid/vanilla",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A fast, lightweight, and responsive masonry grid layout library in vanilla JavaScript.",
   "author": "dangreen",
   "license": "MIT",
