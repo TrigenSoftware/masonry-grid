@@ -22,6 +22,13 @@ export default defineConfig({
             'data-website-id': 'cc85009f-3dcf-4cf0-a2e3-f74066dce2e4',
             'defer': true
           }
+        },
+        {
+          tag: 'meta',
+          attrs: {
+            name: 'google-site-verification',
+            content: 'JbpBLn9A_qAr4OqSunPoFWeahyME9dMplBMUsaOK_I4'
+          }
         }
       ],
       social: [
