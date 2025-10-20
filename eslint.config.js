@@ -8,6 +8,7 @@ export default [
     '**/dist/',
     '**/package/',
     '**/.astro/',
+    '**/.svelte-kit/',
     './examples/**'
   ]),
   ...baseConfig,
