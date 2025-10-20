@@ -53,10 +53,6 @@ const meta: Meta = {
         step: 10
       },
       description: 'Width of each item'
-    },
-    balanced: {
-      control: 'boolean',
-      description: 'Use balanced masonry grid'
     }
   }
 }
