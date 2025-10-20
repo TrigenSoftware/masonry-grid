@@ -1,0 +1,94 @@
+{
+  "name": "@masonry-grid/svelte",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A fast, lightweight, and responsive masonry grid layout library for Svelte.",
+  "author": "dangreen",
+  "license": "MIT",
+  "homepage": "https://masonry-grid.js.org",
+  "funding": "https://ko-fi.com/dangreen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/masonry-grid.git",
+    "directory": "packages/svelte"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/masonry-grid/issues"
+  },
+  "keywords": [
+    "masonry",
+    "grid",
+    "layout",
+    "masonry-grid",
+    "responsive",
+    "fast",
+    "lightweight",
+    "svelte"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "sideEffects": false,
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.ts"
+  },
+  "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "svelte": "./dist/index.js",
+        "default": "./dist/index.js"
+      }
+    },
+    "directory": "package",
+    "linkDirectory": false
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clear:package": "del ./package",
+    "clear:dist": "del ./dist ./.svelte-kit",
+    "clear:dist-assets": "del './dist/**.{spec,stories}.*'",
+    "clear": "del ./package ./dist ./.svelte-kit ./coverage",
+    "prepublishOnly": "run build clear:package clean-publish",
+    "postpublish": "pnpm clear:package",
+    "build:dist": "svelte-package --input src --output dist --tsconfig tsconfig.build.json",
+    "build": "run clear:dist build:dist clear:dist-assets",
+    "build:storybook": "storybook build",
+    "lint": "eslint --flag v10_config_lookup_from_file",
+    "test:install-deps": "playwright install chromium",
+    "test:unit": "vitest run --coverage",
+    "test:unit:watch": "vitest watch",
+    "test:types": "tsc --noEmit",
+    "test": "run -p lint test:unit test:types",
+    "storybook": "storybook dev -p 6006 --no-open"
+  },
+  "peerDependencies": {
+    "svelte": "^5.0.0"
+  },
+  "dependencies": {
+    "@masonry-grid/vanilla": "workspace:^"
+  },
+  "devDependencies": {
+    "@storybook/addon-svelte-csf": "^5.0.10",
+    "@storybook/svelte": "9.1.13",
+    "@storybook/svelte-vite": "9.1.13",
+    "@sveltejs/package": "^2.3.7",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@testing-library/dom": "^10.0.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/svelte": "^5.2.3",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.0.0",
+    "playwright": "^1.56.0",
+    "size-limit": "^11.1.2",
+    "storybook": "9.1.13",
+    "svelte": "^5.0.0",
+    "typescript": "^5.3.3",
+    "vite": "^7.0.0",
+    "vitest": "^3.0.0"
+  }
+}

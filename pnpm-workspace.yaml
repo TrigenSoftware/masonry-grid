@@ -5,3 +5,4 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - simple-git-hooks
+  - svelte-preprocess

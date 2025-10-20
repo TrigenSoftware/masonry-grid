@@ -28,6 +28,7 @@ dist
 package
 build
 .astro
+.svelte-kit
 
 # Env files
 .env
