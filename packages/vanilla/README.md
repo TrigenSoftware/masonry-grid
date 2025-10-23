@@ -40,7 +40,7 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
   overflow: hidden;
   /* Optional styles */
   gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .frame {

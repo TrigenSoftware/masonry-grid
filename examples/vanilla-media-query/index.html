@@ -37,7 +37,7 @@
       display: grid;
       overflow: hidden;
       gap: 10px;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
       transition: opacity 0.3s ease;
     }
 
@@ -50,7 +50,7 @@
     @media (max-width: 768px) {
       .masonry {
         gap: 5px;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       }
     }
 
@@ -70,7 +70,7 @@
   <div class="container">
     <h1>Responsive Masonry Grid Example</h1>
     <p class="description">
-      This example demonstrates responsive behavior with media queries. On screens smaller than 768px, the gap reduces to 5px and column width changes to 150px.
+      This example demonstrates responsive behavior with media queries. On screens smaller than 768px, the gap reduces to 5px and column width changes to 100px.
     </p>
 
     <div class="masonry hidden" id="grid">
