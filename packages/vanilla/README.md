@@ -46,6 +46,10 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
 .frame {
   /* Required styles */
   aspect-ratio: var(--width) / var(--height);
+
+  & img {
+    width: 100%;
+  }
 }
 </style>
 <div class="masonry">

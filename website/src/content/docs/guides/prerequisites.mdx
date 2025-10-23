@@ -27,6 +27,10 @@ The container must be CSS Grid and each item must have `--width` and `--height` 
 .frame {
   /* Required styles */
   aspect-ratio: var(--width) / var(--height);
+
+  & img {
+    width: 100%;
+  }
 }
 </style>
 <div class="masonry">
