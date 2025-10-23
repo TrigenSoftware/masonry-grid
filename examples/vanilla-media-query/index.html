@@ -38,6 +38,12 @@
       overflow: hidden;
       gap: 10px;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      transition: opacity 0.3s ease;
+    }
+
+    /* Hide grid until JS loads to prevent FOUC */
+    .hidden {
+      opacity: 0;
     }
 
     /* Media query for small screens */
@@ -67,7 +73,7 @@
       This example demonstrates responsive behavior with media queries. On screens smaller than 768px, the gap reduces to 5px and column width changes to 150px.
     </p>
 
-    <div class="masonry" id="grid">
+    <div class="masonry hidden" id="grid">
       <div class="frame" style="--width: 1; --height: 1; --color: hsl(15, 70%, 80%)">1</div>
       <div class="frame" style="--width: 2; --height: 3; --color: hsl(45, 70%, 80%)">2</div>
       <div class="frame" style="--width: 3; --height: 2; --color: hsl(75, 70%, 80%)">3</div>
@@ -109,7 +115,11 @@
   <script type="module">
     import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
 
-    new BalancedMasonryGrid(document.getElementById('grid'))
+    const grid = document.getElementById('grid')
+
+    grid.classList.remove('hidden')
+
+    new BalancedMasonryGrid(grid)
   </script>
 </body>
 </html>

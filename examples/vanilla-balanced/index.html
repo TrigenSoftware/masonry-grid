@@ -38,6 +38,12 @@
       overflow: hidden;
       gap: 10px;
       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      transition: opacity 0.3s ease;
+    }
+
+    /* Hide grid until JS loads to prevent FOUC */
+    .hidden {
+      opacity: 0;
     }
 
     .frame {
@@ -59,7 +65,7 @@
       The balanced algorithm distributes items evenly across columns, preventing one column from becoming much taller than others.
     </p>
 
-    <div class="masonry" id="grid">
+    <div class="masonry hidden" id="grid">
       <div class="frame" style="--width: 1; --height: 1; --color: hsl(15, 70%, 80%)">1</div>
       <div class="frame" style="--width: 2; --height: 3; --color: hsl(45, 70%, 80%)">2</div>
       <div class="frame" style="--width: 3; --height: 2; --color: hsl(75, 70%, 80%)">3</div>
@@ -101,7 +107,11 @@
   <script type="module">
     import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
 
-    new BalancedMasonryGrid(document.getElementById('grid'))
+    const grid = document.getElementById('grid')
+
+    grid.classList.remove('hidden')
+
+    new BalancedMasonryGrid(grid)
   </script>
 </body>
 </html>

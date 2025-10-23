@@ -17,7 +17,11 @@
   "scripts": {
     "clear": "del ./.astro ./dist",
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "copy-examples:regular": "cp ../examples/vanilla-regular/index.html ./public/vanilla-examples-frames/vanilla-regular.html",
+    "copy-examples:balanced": "cp ../examples/vanilla-balanced/index.html ./public/vanilla-examples-frames/vanilla-balanced.html",
+    "copy-examples:media-query": "cp ../examples/vanilla-media-query/index.html ./public/vanilla-examples-frames/vanilla-media-query.html",
+    "copy-examples": "run [ rm -rf ./public/vanilla-examples-frames/ ] [ mkdir -p ./public/vanilla-examples-frames/ ] copy-examples:regular copy-examples:balanced copy-examples:media-query",
+    "build": "run copy-examples [ astro check ] [ astro build ]",
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint --flag v10_config_lookup_from_file"
