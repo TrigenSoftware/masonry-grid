@@ -2,7 +2,7 @@
 title: React Balanced Grid
 description: Example of using BalancedMasonryGrid component from @masonry-grid/react
 sidebar:
-  order: 5
+  order: 6
 ---
 
 <iframe

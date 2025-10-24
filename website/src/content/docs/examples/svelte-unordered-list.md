@@ -2,7 +2,7 @@
 title: Svelte Unordered List
 description: Example of using BalancedMasonryGrid component with `as` prop from @masonry-grid/svelte
 sidebar:
-  order: 9
+  order: 10
 ---
 
 <iframe

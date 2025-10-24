@@ -12,6 +12,7 @@ Interactive examples demonstrating various features and use cases of Masonry Gri
 - [Regular Grid](./vanilla-regular/) - Minimal implementation with static HTML
 - [Balanced Grid](./vanilla-balanced/) - Balanced layout algorithm
 - [Responsive Grid](./vanilla-media-query/) - Responsive layouts with media queries
+- [Infinite Scroll](./vanilla-infinite-scroll/) - Dynamic content loading with infinite scroll
 
 ## React
 

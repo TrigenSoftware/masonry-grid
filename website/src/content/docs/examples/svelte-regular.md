@@ -2,7 +2,7 @@
 title: Svelte Regular Grid
 description: Example of using MasonryGrid component from @masonry-grid/svelte
 sidebar:
-  order: 7
+  order: 8
 ---
 
 <iframe

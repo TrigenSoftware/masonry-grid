@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Infinite Scroll Masonry Grid - Vanilla JS</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .description {
+      margin-bottom: 20px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .masonry {
+      display: grid;
+      overflow: hidden;
+      gap: 10px;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .frame {
+      aspect-ratio: var(--width) / var(--height);
+      background-color: var(--color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      color: rgba(0, 0, 0, 0.3);
+    }
+
+    .loading {
+      text-align: center;
+      padding: 40px 0;
+      color: #666;
+      font-size: 16px;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 3px solid rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      border-top-color: #666;
+      animation: spin 0.8s linear infinite;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Infinite Scroll Masonry Grid Example</h1>
+    <p class="description">
+      Scroll down to load more items automatically. This example demonstrates how to implement infinite scroll with the balanced masonry grid algorithm.
+    </p>
+
+    <div class="masonry" id="grid"></div>
+
+    <div class="loading" id="loading">
+      <span class="spinner"></span>
+      Loading more items...
+    </div>
+  </div>
+
+  <script type="module">
+    import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
+
+    const aspectRatios = [
+      [1, 1],
+      [2, 3],
+      [3, 2]
+    ]
+
+    function getRandomAspectRatio(prevAspectRatio) {
+      const newAspectRatio =
+        aspectRatios[Math.floor(Math.random() * aspectRatios.length)]
+
+      if (newAspectRatio === prevAspectRatio) {
+        return getRandomAspectRatio(prevAspectRatio)
+      }
+
+      return newAspectRatio
+    }
+
+    function getRandomColor() {
+      return `hsl(${Math.floor(
+        Math.random() * 360
+      )}, 100%, 75%)`
+    }
+
+    function createFrame([w, h], i) {
+      const frame = document.createElement('div')
+
+      frame.className = 'frame'
+      frame.style.setProperty('--width', String(w))
+      frame.style.setProperty('--height', String(h))
+      frame.textContent = i + 1
+
+      return frame
+    }
+
+    function createRandomFrames(count, baseIndex = 0) {
+      let aspectRatio
+      const frames = Array.from({
+        length: count
+      }, (_, i) => {
+        aspectRatio = getRandomAspectRatio(aspectRatio)
+
+        const frame = createFrame(aspectRatio, baseIndex + i)
+
+        frame.style.setProperty('--color', getRandomColor())
+
+        return frame
+      })
+
+      return frames
+    }
+
+    const grid = document.getElementById('grid')
+    const loader = document.getElementById('loading')
+
+    let itemCounter = 0
+    let isLoading = false
+
+    function addFrames() {
+      const frames = createRandomFrames(56, itemCounter)
+      const fragment = document.createDocumentFragment()
+
+      itemCounter += frames.length
+      fragment.append(...frames)
+
+      grid.appendChild(fragment)
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            addFrames()
+          }, 1000)
+        }
+      })
+    })
+
+    addFrames()
+
+    new BalancedMasonryGrid(grid)
+
+    observer.observe(loader)
+  </script>
+</body>
+</html>

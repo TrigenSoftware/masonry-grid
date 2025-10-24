@@ -2,7 +2,7 @@
 title: React Unordered List
 description: Example of using BalancedMasonryGrid component with `as` prop from @masonry-grid/react
 sidebar:
-  order: 6
+  order: 7
 ---
 
 <iframe

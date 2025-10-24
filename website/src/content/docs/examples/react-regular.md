@@ -2,7 +2,7 @@
 title: React Regular Grid
 description: Example of using MasonryGrid component from @masonry-grid/react
 sidebar:
-  order: 4
+  order: 5
 ---
 
 <iframe

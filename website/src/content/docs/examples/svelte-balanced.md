@@ -2,7 +2,7 @@
 title: Svelte Balanced Grid
 description: Example of using BalancedMasonryGrid component from @masonry-grid/svelte
 sidebar:
-  order: 8
+  order: 9
 ---
 
 <iframe
