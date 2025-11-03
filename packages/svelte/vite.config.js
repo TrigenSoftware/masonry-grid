@@ -22,7 +22,11 @@ export default defineConfig({
         }
       ]
     },
-    exclude: [...configDefaults.exclude, './package'],
+    exclude: [
+      ...configDefaults.exclude,
+      './package',
+      './.svelte-kit'
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['lcovonly', 'text'],

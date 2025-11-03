@@ -21,7 +21,7 @@
   "scripts": {
     "clear": "pnpm -r --parallel clear",
     "build": "pnpm -r --parallel --filter \\!website build",
-    "lint": "pnpm -r --parallel --if-present lint",
+    "lint": "pnpm -r --parallel --filter \\!website --if-present lint",
     "test:unit": "pnpm -r --parallel --if-present test:unit",
     "test:size": "pnpm -r --parallel --if-present test:size",
     "test:types": "pnpm -r --parallel --if-present test:types",
