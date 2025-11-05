@@ -9,7 +9,7 @@ export default [
     '**/package/',
     '**/.astro/',
     '**/.svelte-kit/',
-    './examples/**'
+    './sandboxes/**'
   ]),
   ...baseConfig,
   ...testConfig,

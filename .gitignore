@@ -29,7 +29,7 @@ package
 build
 .astro
 .svelte-kit
-website/public/vanilla-examples-frames
+website/public/sandboxes
 
 # Env files
 .env

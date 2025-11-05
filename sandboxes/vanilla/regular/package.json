@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "dev": "serve .",
+    "build": "rm -rf dist && mkdir dist && cp index.html dist/"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

@@ -31,6 +31,9 @@ jobs:
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
+      - name: Install sandbox dependencies
+        run: pnpm install
+        working-directory: ./sandboxes
       - name: Build website
         run: pnpm docs:build
       - name: Setup Pages

@@ -2,5 +2,6 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "skipLibCheck": true
-  }
+  },
+  "exclude": ["dist", "public"]
 }
