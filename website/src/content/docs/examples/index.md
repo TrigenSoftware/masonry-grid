@@ -26,3 +26,8 @@ Interactive examples demonstrating various features and use cases of Masonry Gri
 - [Balanced Svelte Grid](./svelte-balanced/) - Balanced algorithm with controls
 - [Semantic List](./svelte-unordered-list/) - Using `<ul>` and `<li>` elements
 
+## SolidJS
+
+- [Regular SolidJS Grid](./solid-regular/) - Interactive example with controls
+- [Balanced SolidJS Grid](./solid-balanced/) - Balanced algorithm with controls
+- [Semantic List](./solid-unordered-list/) - Using `<ul>` and `<li>` elements

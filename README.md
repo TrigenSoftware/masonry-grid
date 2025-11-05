@@ -31,6 +31,7 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
 | [`@masonry-grid/vanilla`](packages/vanilla#readme) | [![NPM version][vanilla-npm]][vanilla-npm-url] | [![Bundle size][vanilla-size]][vanilla-size-url] |
 | [`@masonry-grid/react`](packages/react#readme) | [![NPM version][react-npm]][react-npm-url] | [![Bundle size][react-size]][react-size-url] |
 | [`@masonry-grid/svelte`](packages/svelte#readme) | [![NPM version][svelte-npm]][svelte-npm-url] | [![Bundle size][svelte-size]][svelte-size-url] |
+| [`@masonry-grid/solid-js`](packages/solid-js#readme) | [![NPM version][solid-js-npm]][solid-js-npm-url] | [![Bundle size][solid-js-size]][solid-js-size-url] |
 
 <!-- vanilla -->
 
@@ -55,3 +56,11 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
 
 [svelte-size]: https://deno.bundlejs.com/badge?q=%40masonry-grid%2Fsvelte
 [svelte-size-url]: https://bundlejs.com/?q=%40masonry-grid%2Fsvelte
+
+<!-- solid-js -->
+
+[solid-js-npm]: https://img.shields.io/npm/v/%40masonry-grid%2Fsolid-js.svg
+[solid-js-npm-url]: https://www.npmjs.com/package/@masonry-grid/solid-js
+
+[solid-js-size]: https://deno.bundlejs.com/badge?q=%40masonry-grid%2Fsolid-js
+[solid-js-size-url]: https://bundlejs.com/?q=%40masonry-grid%2Fsolid-js

@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@masonry-grid/solid-js": "^1.0.0",
+    "solid-js": "^1.8.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^7.0.0",
+    "vite-plugin-solid": "^2.10.2"
+  }
+}

@@ -215,4 +215,61 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
     </Steps>
 
   </TabItem>
+  <TabItem label='SolidJS' icon='seti:crystal_embedded'>
+
+    <Steps>
+
+    1. Install package by running the following command in your terminal:
+
+        <Tabs syncKey='pkg'>
+          <TabItem label='pnpm' icon='pnpm'>
+            <Code frame='none' lang='bash' code='pnpm add @masonry-grid/solid-js' />
+          </TabItem>
+          <TabItem label='Yarn' icon='seti:yarn'>
+            <Code frame='none' lang='sh' code='yarn add @masonry-grid/solid-js' />
+          </TabItem>
+          <TabItem label='npm' icon='seti:npm'>
+            <Code frame='none' lang='sh' code='npm install @masonry-grid/solid-js' />
+          </TabItem>
+        </Tabs>
+
+    2. Now you can import the components and start using them in your SolidJS project:
+
+        ```tsx
+        import { BalancedMasonryGrid, Frame } from '@masonry-grid/solid-js'
+
+        function Gallery() {
+          return (
+            <BalancedMasonryGrid
+              frameWidth={200}
+              gap={10}
+            >
+              <Frame width={4} height={3}>
+                <img src='https://picsum.photos/400/300' alt='Photo 1' />
+              </Frame>
+              <Frame width={1} height={1}>
+                <img src='https://picsum.photos/200/200' alt='Photo 2' />
+              </Frame>
+              <Frame width={3} height={4}>
+                <img src='https://picsum.photos/300/400' alt='Photo 3' />
+              </Frame>
+              <Frame width={3} height={4}>
+                <img src='https://picsum.photos/300/400' alt='Photo 4' />
+              </Frame>
+              <Frame width={1} height={1}>
+                <img src='https://picsum.photos/200/200' alt='Photo 5' />
+              </Frame>
+              <Frame width={4} height={3}>
+                <img src='https://picsum.photos/400/300' alt='Photo 6' />
+              </Frame>
+            </BalancedMasonryGrid>
+          )
+        }
+        ```
+
+    3. Run your SolidJS application and see the masonry grid in action!
+
+    </Steps>
+
+  </TabItem>
 </Tabs>
