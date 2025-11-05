@@ -1,0 +1,94 @@
+{
+  "name": "@masonry-grid/solid-js",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A fast, lightweight, and responsive masonry grid layout library for SolidJS.",
+  "author": "dangreen",
+  "license": "MIT",
+  "homepage": "https://masonry-grid.js.org",
+  "funding": "https://ko-fi.com/dangreen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TrigenSoftware/masonry-grid.git",
+    "directory": "packages/solid-js"
+  },
+  "bugs": {
+    "url": "https://github.com/TrigenSoftware/masonry-grid/issues"
+  },
+  "keywords": [
+    "masonry",
+    "grid",
+    "layout",
+    "masonry-grid",
+    "responsive",
+    "fast",
+    "lightweight",
+    "solid",
+    "solidjs"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "sideEffects": false,
+  "exports": {
+    "./package.json": "./package.json",
+    ".": "./src/index.tsx"
+  },
+  "publishConfig": {
+    "exports": {
+      "./package.json": "./package.json",
+      ".": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
+    },
+    "directory": "package",
+    "linkDirectory": false
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clear:package": "del ./package",
+    "clear:dist": "del ./dist",
+    "clear": "del ./package ./dist ./coverage",
+    "prepublishOnly": "run build clear:package clean-publish",
+    "postpublish": "pnpm clear:package",
+    "emitDeclarations": "tsc -p ./tsconfig.build.json --emitDeclarationOnly",
+    "build:dist": "run -p emitDeclarations [ vite build ]",
+    "build": "run clear:dist build:dist",
+    "build:storybook": "storybook build",
+    "lint": "eslint --flag v10_config_lookup_from_file",
+    "test:install-deps": "playwright install chromium",
+    "test:unit": "vitest run --coverage",
+    "test:unit:watch": "vitest watch",
+    "test:size": "size-limit",
+    "test:types": "tsc --noEmit",
+    "test": "run -p lint test:unit test:types",
+    "storybook": "storybook dev -p 6006 --no-open"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.8.0"
+  },
+  "dependencies": {
+    "@masonry-grid/vanilla": "workspace:^"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.1.2",
+    "@solidjs/testing-library": "^0.8.10",
+    "@testing-library/dom": "^10.0.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@vitest/browser": "^3.2.4",
+    "@vitest/coverage-v8": "^3.0.0",
+    "jsdom": "^27.1.0",
+    "playwright": "^1.56.0",
+    "size-limit": "^11.1.2",
+    "solid-js": "^1.8.0",
+    "storybook": "^9.1.13",
+    "storybook-solidjs-vite": "^9.0.0",
+    "typescript": "^5.3.3",
+    "vite": "^7.1.11",
+    "vite-plugin-solid": "^2.10.2",
+    "vitest": "^3.0.0"
+  }
+}
