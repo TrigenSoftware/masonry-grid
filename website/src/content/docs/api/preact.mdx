@@ -1,27 +1,25 @@
 ---
-title: '@masonry-grid/svelte'
-description: Documentation for the Svelte package of Masonry Grid
+title: '@masonry-grid/preact'
+description: Documentation for the Preact package of Masonry Grid
 sidebar:
-  order: 4
+  order: 3
 ---
 
 ## MasonryGrid
 
 Standard masonry layout that stacks items by pulling them up to fill gaps.
 
-```svelte
-<script>
-  import { MasonryGrid, Frame } from '@masonry-grid/svelte'
-</script>
+```tsx
+import { MasonryGrid, Frame } from '@masonry-grid/preact'
 
 <MasonryGrid
   frameWidth={200}
   gap={10}
 >
   <Frame width={4} height={3}>
-    <img src='...' alt='' />
+    <img src='...' />
   </Frame>
-  <!-- more frames... -->
+  {/* more frames... */}
 </MasonryGrid>
 ```
 
@@ -30,26 +28,24 @@ Standard masonry layout that stacks items by pulling them up to fill gaps.
 - `frameWidth?: number | string` - Minimum width of each frame. Used to calculate `grid-template-columns`. Can be a number (px) or string with units.
 - `gap?: number | string` - Gap between items. Can be a number (px) or string with units.
 - `disabled?: boolean` - Disable the masonry layout (no transforms/reordering will be applied).
-- `as?: string` - Render as a different element (default: `'div'`).
+- `as?: ElementType` - Render as a different element (default: `'div'`).
 - All other HTML attributes are passed through.
 
 ## BalancedMasonryGrid
 
 Balanced masonry layout that reorders items inside rows to minimize overall grid height.
 
-```svelte
-<script>
-  import { BalancedMasonryGrid, Frame } from '@masonry-grid/svelte'
-</script>
+```tsx
+import { BalancedMasonryGrid, Frame } from '@masonry-grid/preact'
 
 <BalancedMasonryGrid
   frameWidth={200}
   gap={10}
 >
   <Frame width={4} height={3}>
-    <img src='...' alt='' />
+    <img src='...' />
   </Frame>
-  <!-- more frames... -->
+  {/* more frames... */}
 </BalancedMasonryGrid>
 ```
 
@@ -61,17 +57,15 @@ Same as `MasonryGrid`.
 
 Component for defining masonry grid item with aspect ratio.
 
-```svelte
-<script>
-  import { Frame } from '@masonry-grid/svelte'
-</script>
+```tsx
+import { Frame } from '@masonry-grid/preact'
 
 <Frame
   width={16}
   height={9}
   as='li'
 >
-  <img src='...' alt='' />
+  <img src='...' />
 </Frame>
 ```
 
@@ -79,23 +73,33 @@ Component for defining masonry grid item with aspect ratio.
 
 - `width: number` - Width for aspect ratio calculation (not necessarily real pixel width).
 - `height: number` - Height for aspect ratio calculation (not necessarily real pixel height).
-- `as?: string` - Render as a different element (default: `'div'`).
+- `as?: ElementType` - Render as a different element (default: `'div'`).
 - All other HTML attributes are passed through.
 
-## masonry
+## useMasonryGrid
 
-Svelte action for advanced use cases when you need direct access to the masonry grid instance.
+Hook for advanced use cases when you need direct access to the masonry grid instance.
 
-```svelte
-<script>
-  import { masonry } from '@masonry-grid/svelte'
-  import { MasonryGrid as VanillaMasonryGrid } from '@masonry-grid/vanilla'
-</script>
+```tsx
+import { useMasonryGrid } from '@masonry-grid/preact'
+import { MasonryGrid as VanillaMasonryGrid } from '@masonry-grid/vanilla'
 
-<div
-  use:masonry={{ type: VanillaMasonryGrid }}
-  style="display: grid; overflow: hidden; gap: 10px;"
->
-  <!-- children -->
-</div>
+function CustomGrid() {
+  const containerRef = useMasonryGrid<HTMLDivElement>({
+    type: VanillaMasonryGrid
+  })
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        display: 'grid',
+        overflow: 'hidden',
+        gap: '10px'
+      }}
+    >
+      {/* children */}
+    </div>
+  )
+}
 ```

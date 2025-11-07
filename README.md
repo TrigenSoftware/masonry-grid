@@ -30,6 +30,7 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
 |---------|---------|------|
 | [`@masonry-grid/vanilla`](packages/vanilla#readme) | [![NPM version][vanilla-npm]][vanilla-npm-url] | [![Bundle size][vanilla-size]][vanilla-size-url] |
 | [`@masonry-grid/react`](packages/react#readme) | [![NPM version][react-npm]][react-npm-url] | [![Bundle size][react-size]][react-size-url] |
+| [`@masonry-grid/preact`](packages/preact#readme) | [![NPM version][preact-npm]][preact-npm-url] | [![Bundle size][preact-size]][preact-size-url] |
 | [`@masonry-grid/svelte`](packages/svelte#readme) | [![NPM version][svelte-npm]][svelte-npm-url] | [![Bundle size][svelte-size]][svelte-size-url] |
 | [`@masonry-grid/solid-js`](packages/solid-js#readme) | [![NPM version][solid-js-npm]][solid-js-npm-url] | [![Bundle size][solid-js-size]][solid-js-size-url] |
 
@@ -48,6 +49,14 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
 
 [react-size]: https://deno.bundlejs.com/badge?q=%40masonry-grid%2Freact
 [react-size-url]: https://bundlejs.com/?q=%40masonry-grid%2Freact
+
+<!-- preact -->
+
+[preact-npm]: https://img.shields.io/npm/v/%40masonry-grid%2Fpreact.svg
+[preact-npm-url]: https://www.npmjs.com/package/@masonry-grid/preact
+
+[preact-size]: https://deno.bundlejs.com/badge?q=%40masonry-grid%2Fpreact
+[preact-size-url]: https://bundlejs.com/?q=%40masonry-grid%2Fpreact
 
 <!-- svelte -->
 

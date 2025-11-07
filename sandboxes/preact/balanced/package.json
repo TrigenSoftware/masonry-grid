@@ -1,0 +1,16 @@
+{
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@masonry-grid/preact": "^1.0.0",
+    "preact": "^10.26.0"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.0",
+    "typescript": "^5.3.3",
+    "vite": "^7.0.0"
+  }
+}
