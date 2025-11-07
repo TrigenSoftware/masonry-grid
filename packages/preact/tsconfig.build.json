@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "jsx": "preserve",
+    "jsxImportSource": "preact"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.stories.tsx"
+  ]
+}
