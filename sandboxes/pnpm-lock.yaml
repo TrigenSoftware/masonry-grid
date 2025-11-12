@@ -11,8 +11,8 @@ importers:
   preact/balanced:
     dependencies:
       '@masonry-grid/preact':
-        specifier: ^1.0.0
-        version: 1.0.0(preact@10.27.2)
+        specifier: ^1.1.1
+        version: 1.1.1(preact@10.27.2)
       preact:
         specifier: ^10.26.0
         version: 10.27.2
@@ -30,8 +30,8 @@ importers:
   preact/regular:
     dependencies:
       '@masonry-grid/preact':
-        specifier: ^1.0.0
-        version: 1.0.0(preact@10.27.2)
+        specifier: ^1.1.1
+        version: 1.1.1(preact@10.27.2)
       preact:
         specifier: ^10.26.0
         version: 10.27.2
@@ -46,11 +46,30 @@ importers:
         specifier: ^7.0.0
         version: 7.2.0
 
+  preact/spanned:
+    dependencies:
+      '@masonry-grid/preact':
+        specifier: ^1.1.1
+        version: 1.1.1(preact@10.27.2)
+      preact:
+        specifier: ^10.26.1
+        version: 10.27.2
+    devDependencies:
+      '@preact/preset-vite':
+        specifier: ^2.9.3
+        version: 2.10.2(@babel/core@7.28.5)(preact@10.27.2)(vite@7.2.0)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.9.3
+      vite:
+        specifier: ^7.0.0
+        version: 7.2.0
+
   preact/unordered-list:
     dependencies:
       '@masonry-grid/preact':
-        specifier: ^1.0.0
-        version: 1.0.0(preact@10.27.2)
+        specifier: ^1.1.1
+        version: 1.1.1(preact@10.27.2)
       preact:
         specifier: ^10.26.0
         version: 10.27.2
@@ -68,8 +87,8 @@ importers:
   react/balanced:
     dependencies:
       '@masonry-grid/react':
-        specifier: ^1.0.0
-        version: 1.0.1(react@19.2.0)
+        specifier: ^1.1.1
+        version: 1.1.1(react@19.2.0)
       react:
         specifier: ^19.0.0
         version: 19.2.0
@@ -96,8 +115,36 @@ importers:
   react/regular:
     dependencies:
       '@masonry-grid/react':
-        specifier: ^1.0.0
-        version: 1.0.1(react@19.2.0)
+        specifier: ^1.1.1
+        version: 1.1.1(react@19.2.0)
+      react:
+        specifier: ^19.0.0
+        version: 19.2.0
+      react-dom:
+        specifier: ^19.0.0
+        version: 19.2.0(react@19.2.0)
+    devDependencies:
+      '@types/react':
+        specifier: ^19.0.0
+        version: 19.2.2
+      '@types/react-dom':
+        specifier: ^19.0.0
+        version: 19.2.2(@types/react@19.2.2)
+      '@vitejs/plugin-react':
+        specifier: ^4.3.4
+        version: 4.7.0(vite@7.2.0)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.9.3
+      vite:
+        specifier: ^7.0.0
+        version: 7.2.0
+
+  react/spanned:
+    dependencies:
+      '@masonry-grid/react':
+        specifier: ^1.1.1
+        version: 1.1.1(react@19.2.0)
       react:
         specifier: ^19.0.0
         version: 19.2.0
@@ -124,8 +171,8 @@ importers:
   react/unordered-list:
     dependencies:
       '@masonry-grid/react':
-        specifier: ^1.0.0
-        version: 1.0.1(react@19.2.0)
+        specifier: ^1.1.1
+        version: 1.1.1(react@19.2.0)
       react:
         specifier: ^19.0.0
         version: 19.2.0
@@ -152,8 +199,8 @@ importers:
   solid-js/balanced:
     dependencies:
       '@masonry-grid/solid-js':
-        specifier: ^1.0.0
-        version: 1.0.0(solid-js@1.9.10)
+        specifier: ^1.1.1
+        version: 1.1.1(solid-js@1.9.10)
       solid-js:
         specifier: ^1.8.0
         version: 1.9.10
@@ -171,8 +218,27 @@ importers:
   solid-js/regular:
     dependencies:
       '@masonry-grid/solid-js':
-        specifier: ^1.0.0
-        version: 1.0.0(solid-js@1.9.10)
+        specifier: ^1.1.1
+        version: 1.1.1(solid-js@1.9.10)
+      solid-js:
+        specifier: ^1.8.0
+        version: 1.9.10
+    devDependencies:
+      typescript:
+        specifier: ^5.3.3
+        version: 5.9.3
+      vite:
+        specifier: ^7.0.0
+        version: 7.2.0
+      vite-plugin-solid:
+        specifier: ^2.10.2
+        version: 2.11.10(solid-js@1.9.10)(vite@7.2.0)
+
+  solid-js/spanned:
+    dependencies:
+      '@masonry-grid/solid-js':
+        specifier: ^1.1.1
+        version: 1.1.1(solid-js@1.9.10)
       solid-js:
         specifier: ^1.8.0
         version: 1.9.10
@@ -190,8 +256,8 @@ importers:
   solid-js/unordered-list:
     dependencies:
       '@masonry-grid/solid-js':
-        specifier: ^1.0.0
-        version: 1.0.0(solid-js@1.9.10)
+        specifier: ^1.1.1
+        version: 1.1.1(solid-js@1.9.10)
       solid-js:
         specifier: ^1.8.0
         version: 1.9.10
@@ -209,8 +275,8 @@ importers:
   svelte/balanced:
     dependencies:
       '@masonry-grid/svelte':
-        specifier: ^1.0.0
-        version: 1.0.0(svelte@5.43.3)
+        specifier: ^1.1.1
+        version: 1.1.1(svelte@5.43.3)
       svelte:
         specifier: ^5.0.0
         version: 5.43.3
@@ -228,8 +294,27 @@ importers:
   svelte/regular:
     dependencies:
       '@masonry-grid/svelte':
-        specifier: ^1.0.0
-        version: 1.0.0(svelte@5.43.3)
+        specifier: ^1.1.1
+        version: 1.1.1(svelte@5.43.3)
+      svelte:
+        specifier: ^5.0.0
+        version: 5.43.3
+    devDependencies:
+      '@sveltejs/vite-plugin-svelte':
+        specifier: ^6.2.1
+        version: 6.2.1(svelte@5.43.3)(vite@7.2.0)
+      typescript:
+        specifier: ^5.3.3
+        version: 5.9.3
+      vite:
+        specifier: ^7.0.0
+        version: 7.2.0
+
+  svelte/spanned:
+    dependencies:
+      '@masonry-grid/svelte':
+        specifier: ^1.1.1
+        version: 1.1.1(svelte@5.43.3)
       svelte:
         specifier: ^5.0.0
         version: 5.43.3
@@ -247,8 +332,8 @@ importers:
   svelte/unordered-list:
     dependencies:
       '@masonry-grid/svelte':
-        specifier: ^1.0.0
-        version: 1.0.0(svelte@5.43.3)
+        specifier: ^1.1.1
+        version: 1.1.1(svelte@5.43.3)
       svelte:
         specifier: ^5.0.0
         version: 5.43.3
@@ -570,32 +655,32 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@masonry-grid/preact@1.0.0':
-    resolution: {integrity: sha512-j3toLoBhbT9ds1DoASU0hKYO05BGtZFhQea8APeqNLCS9sP6KQsl3mk3W2fQrx5bhZGqaYzFwR00xWyp8xkFnA==}
+  '@masonry-grid/preact@1.1.1':
+    resolution: {integrity: sha512-MJOSWPUgF4WpYvsrhaM8CdlMihUyI8QpZJRTeT4CJfiD94BeBD1E+FkEBYe8RIbbpTWLi3L3iLBwbJR/fqe2bw==}
     engines: {node: '>=16'}
     peerDependencies:
       preact: ^10.0.0
 
-  '@masonry-grid/react@1.0.1':
-    resolution: {integrity: sha512-SPHYY/sks2VwWWexDED/QQ3xAoWbtfaIhXwwgbo0zv6zFHM+1xrjef9JZfHseoz7NewXGQ/xWvB9RZreqdbKPA==}
+  '@masonry-grid/react@1.1.1':
+    resolution: {integrity: sha512-IKHd8fLgL7kjPIz4lL6cIgPXv31goVvrQK03nK0zBqBLDelPDPRaYtpqqTzpb4EGNXepoj5Z157/F2Vijeqfsw==}
     engines: {node: '>=16'}
     peerDependencies:
       react: ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@masonry-grid/solid-js@1.0.0':
-    resolution: {integrity: sha512-8SAMhAcMJ95PMgwPtozEnNB3/WvJUvEPn9oZmENOMzGKG4b/v46XNV1JXidaMS80gFakvQZrjxt18Clut95RGg==}
+  '@masonry-grid/solid-js@1.1.1':
+    resolution: {integrity: sha512-txyYltJnSsNWNqPQ13XNZqL99HHgZJ/hEhbPW54xdrQoVZvMljPUEjM2wuJHvlYdmntroRKYSEOgaq8erhL4tA==}
     engines: {node: '>=16'}
     peerDependencies:
       solid-js: ^1.8.0
 
-  '@masonry-grid/svelte@1.0.0':
-    resolution: {integrity: sha512-U5NCCbCiasBaOag8AcBn+VGulY/3Eun1YrdkKuwAfAoQZlLojEq7bmoM1Ax8iEfYg2Fl9aivXUarqJZ+5OAIOQ==}
+  '@masonry-grid/svelte@1.1.1':
+    resolution: {integrity: sha512-AJnXk2gnzwDvprY+kCbtFz6z/sdikPxLlDiBi4W+iZjiHqj3odqwr2x/OWCs1GfmjSu78ED5Stdh9Tn73qWx+g==}
     engines: {node: '>=16'}
     peerDependencies:
       svelte: ^5.0.0
 
-  '@masonry-grid/vanilla@1.0.1':
-    resolution: {integrity: sha512-Sr3TyEyxKdm+HIj5IE4F3RplyXLov0on6bwLJj3Hy+GIuJcMJQ03cTXvD8ewSRPac+82pHFc9Pm+fz40ljd96w==}
+  '@masonry-grid/vanilla@1.1.0':
+    resolution: {integrity: sha512-bHpdnA3xBzBey0PpHvrBYs9IZ8vn5VevP75+Vdg5Dqlsez/hufJZ7oRh5rrDK1aAaggoN+FM5fXPdaXOuEvf4Q==}
     engines: {node: '>=16'}
 
   '@preact/preset-vite@2.10.2':
@@ -1716,27 +1801,27 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@masonry-grid/preact@1.0.0(preact@10.27.2)':
+  '@masonry-grid/preact@1.1.1(preact@10.27.2)':
     dependencies:
-      '@masonry-grid/vanilla': 1.0.1
+      '@masonry-grid/vanilla': 1.1.0
       preact: 10.27.2
 
-  '@masonry-grid/react@1.0.1(react@19.2.0)':
+  '@masonry-grid/react@1.1.1(react@19.2.0)':
     dependencies:
-      '@masonry-grid/vanilla': 1.0.1
+      '@masonry-grid/vanilla': 1.1.0
       react: 19.2.0
 
-  '@masonry-grid/solid-js@1.0.0(solid-js@1.9.10)':
+  '@masonry-grid/solid-js@1.1.1(solid-js@1.9.10)':
     dependencies:
-      '@masonry-grid/vanilla': 1.0.1
+      '@masonry-grid/vanilla': 1.1.0
       solid-js: 1.9.10
 
-  '@masonry-grid/svelte@1.0.0(svelte@5.43.3)':
+  '@masonry-grid/svelte@1.1.1(svelte@5.43.3)':
     dependencies:
-      '@masonry-grid/vanilla': 1.0.1
+      '@masonry-grid/vanilla': 1.1.0
       svelte: 5.43.3
 
-  '@masonry-grid/vanilla@1.0.1': {}
+  '@masonry-grid/vanilla@1.1.0': {}
 
   '@preact/preset-vite@2.10.2(@babel/core@7.28.5)(preact@10.27.2)(vite@7.2.0)':
     dependencies:

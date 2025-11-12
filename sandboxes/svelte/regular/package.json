@@ -5,7 +5,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@masonry-grid/svelte": "^1.0.0",
+    "@masonry-grid/svelte": "^1.1.1",
     "svelte": "^5.0.0"
   },
   "devDependencies": {

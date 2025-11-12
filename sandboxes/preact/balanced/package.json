@@ -5,7 +5,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@masonry-grid/preact": "^1.0.0",
+    "@masonry-grid/preact": "^1.1.1",
     "preact": "^10.26.0"
   },
   "devDependencies": {

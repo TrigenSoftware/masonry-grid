@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { BalancedMasonryGrid, Frame } from '@masonry-grid/svelte'
+  import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/svelte'
   import Controls from './Controls.svelte'
   import { createItems } from './utils'
 
@@ -24,7 +24,7 @@
     bind:containerWidth
   />
 
-  <BalancedMasonryGrid
+  <MasonryGrid
     as="ul"
     class="container masonry-list"
     {gap}
@@ -42,5 +42,5 @@
         {i + 1}
       </Frame>
     {/each}
-  </BalancedMasonryGrid>
+  </MasonryGrid>
 </div>

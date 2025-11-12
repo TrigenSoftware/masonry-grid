@@ -1,7 +1,7 @@
 import { useState } from 'preact/hooks'
 import { render } from 'preact'
 import {
-  BalancedMasonryGrid,
+  BalancedMasonryGrid as MasonryGrid,
   Frame
 } from '@masonry-grid/preact'
 import {
@@ -25,7 +25,7 @@ function App() {
 
       <Controls onChange={setControlsData} data={controlsData} />
 
-      <BalancedMasonryGrid
+      <MasonryGrid
         as='ul'
         className='container masonry-list'
         gap={controlsData.gap}
@@ -44,7 +44,7 @@ function App() {
             {i + 1}
           </Frame>
         ))}
-      </BalancedMasonryGrid>
+      </MasonryGrid>
     </div>
   )
 }

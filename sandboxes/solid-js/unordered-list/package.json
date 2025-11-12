@@ -5,7 +5,7 @@
     "build": "vite build"
   },
   "dependencies": {
-    "@masonry-grid/solid-js": "^1.0.0",
+    "@masonry-grid/solid-js": "^1.1.1",
     "solid-js": "^1.8.0"
   },
   "devDependencies": {

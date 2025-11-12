@@ -1,7 +1,7 @@
 import { createMemo, createSignal, For } from 'solid-js'
 import { render } from 'solid-js/web'
 import {
-  BalancedMasonryGrid,
+  BalancedMasonryGrid as MasonryGrid,
   Frame
 } from '@masonry-grid/solid-js'
 import {
@@ -29,7 +29,7 @@ function App() {
 
       <Controls data={controlsData} onChange={setControlsData} />
 
-      <BalancedMasonryGrid
+      <MasonryGrid
         as='ul'
         class='container masonry-list'
         gap={gap()}
@@ -49,7 +49,7 @@ function App() {
             </Frame>
           )}
         </For>
-      </BalancedMasonryGrid>
+      </MasonryGrid>
     </div>
   )
 }
