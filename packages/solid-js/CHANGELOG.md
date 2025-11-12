@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/TrigenSoftware/masonry-grid/compare/solid-js@1.1.0...solid-js@1.1.1) (2025-11-12)
+
+### Bug Fixes
+
+* fix typo in precision ([bd8cb44](https://github.com/TrigenSoftware/masonry-grid/commit/bd8cb44feaa1a964f500de677b46896723c467ab))
+
 ## [1.1.0](https://github.com/TrigenSoftware/masonry-grid/compare/solid-js@1.0.0...solid-js@1.1.0) (2025-11-12)
 
 ### Features
