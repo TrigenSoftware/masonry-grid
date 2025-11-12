@@ -3,7 +3,7 @@
     "name": "All publics",
     "path": "dist/index.js",
     "import": "*",
-    "limit": "1.97 kB"
+    "limit": "2.29 kB"
   },
   {
     "name": "BalancedMasonryGrid",
