@@ -38,7 +38,7 @@
   }: Props = $props()
 
   let containerStyle = $derived.by(() => {
-    let styles = `--width: ${width}; --height: ${height}; aspect-ratio: var(--width) / var(--height); width: 100%; height: 100%; position: relative; grid-row: span calc(var(--height) / var(--width) * var(--percision));`
+    let styles = `--width: ${width}; --height: ${height}; aspect-ratio: var(--width) / var(--height); width: 100%; height: 100%; position: relative; grid-row: span calc(var(--height) / var(--width) * var(--precision));`
 
     if (style) {
       styles += style

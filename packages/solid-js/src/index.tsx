@@ -193,7 +193,8 @@ export interface SpannedMasonryGridProps {
   gap?: number | string
   /**
    * Precision for span calculation.
-   * Higher precision results in more accurate spans but may impact performance and cause bugs in some browsers.
+   * Affects how accurately frames will maintain their aspect ratios.
+   * Higher precision results in more accurate sizes but may impact performance and cause bugs in some browsers.
    */
   precision?: number
 }
@@ -235,7 +236,7 @@ export function SpannedMasonryGrid(
       style={{
         '--frame-width': formatUnit(local.frameWidth),
         '--gap': formatUnit(local.gap),
-        '--percision': local.precision,
+        '--precision': local.precision,
         ...local.style
       }}
       {...others}
@@ -264,7 +265,7 @@ const SPANNED_FRAME_STYLE: JSX.CSSProperties = {
   'width': '100%',
   'height': '100%',
   'position': 'relative',
-  'grid-row': 'span calc(var(--height) / var(--width) * var(--percision))'
+  'grid-row': 'span calc(var(--height) / var(--width) * var(--precision))'
 }
 const SPANNED_FRAME_INNER_STYLE: JSX.CSSProperties = {
   position: 'absolute',

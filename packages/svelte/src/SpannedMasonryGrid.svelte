@@ -23,7 +23,8 @@
     gap?: number | string
     /**
      * Precision for span calculation.
-     * Higher precision results in more accurate spans but may impact performance and cause bugs in some browsers.
+     * Affects how accurately frames will maintain their aspect ratios.
+     * Higher precision results in more accurate sizes but may impact performance and cause bugs in some browsers.
      */
     precision?: number
     /**
@@ -46,7 +47,7 @@
   }: Props = $props()
 
   let containerStyle = $derived.by(() => {
-    let styles = `--frame-width: ${formatUnit(frameWidth)}; --gap: ${formatUnit(gap)}; --percision: ${precision};`
+    let styles = `--frame-width: ${formatUnit(frameWidth)}; --gap: ${formatUnit(gap)}; --precision: ${precision};`
 
     if (style) {
       styles += style
