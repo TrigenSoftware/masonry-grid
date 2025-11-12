@@ -1,7 +1,7 @@
 {
   "name": "@masonry-grid/svelte",
   "type": "module",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A fast, lightweight, and responsive masonry grid layout library for Svelte.",
   "author": "dangreen",
   "license": "MIT",
