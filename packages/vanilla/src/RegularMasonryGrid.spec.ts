@@ -5,7 +5,7 @@ import {
   beforeEach,
   afterEach
 } from 'vitest'
-import { MasonryGrid } from './MasonryGrid.js'
+import { RegularMasonryGrid } from './RegularMasonryGrid.js'
 import {
   waitForLayout,
   createContainer,
@@ -14,9 +14,9 @@ import {
 } from '../test/utils.mock.js'
 
 describe('@masonry-grid/vanilla', () => {
-  describe('MasonryGrid', () => {
+  describe('RegularMasonryGrid', () => {
     let container: HTMLElement
-    let grid: MasonryGrid
+    let grid: RegularMasonryGrid
 
     beforeEach(() => {
       container = createContainer()
@@ -33,14 +33,14 @@ describe('@masonry-grid/vanilla', () => {
     })
 
     describe('initialization', () => {
-      it('should create a MasonryGrid instance', () => {
-        grid = new MasonryGrid(container)
+      it('should create a RegularMasonryGrid instance', () => {
+        grid = new RegularMasonryGrid(container)
 
-        expect(grid).toBeInstanceOf(MasonryGrid)
+        expect(grid).toBeInstanceOf(RegularMasonryGrid)
       })
 
       it('should add a marker element to the container', () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         expect(container.children.length).toBe(1)
       })
@@ -48,7 +48,7 @@ describe('@masonry-grid/vanilla', () => {
 
     describe('layout calculations', () => {
       it('should set container height after reflow', async () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         container.append(...createRandomFrames(6))
 
@@ -60,7 +60,7 @@ describe('@masonry-grid/vanilla', () => {
       })
 
       it('should apply transform to frames in non-first rows', async () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         document.body.style.height = '2000px'
 
@@ -87,7 +87,7 @@ describe('@masonry-grid/vanilla', () => {
       })
 
       it('should handle single column layout', async () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         container.style.width = '200px'
 
@@ -106,7 +106,7 @@ describe('@masonry-grid/vanilla', () => {
 
     describe('resize handling', () => {
       it('should recalculate layout on container resize', async () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         const frames = createRandomFrames(12)
 
@@ -126,7 +126,7 @@ describe('@masonry-grid/vanilla', () => {
 
     describe('destroy', () => {
       it('should remove marker element', () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         expect(container.children.length).toBe(1)
 
@@ -136,7 +136,7 @@ describe('@masonry-grid/vanilla', () => {
       })
 
       it('should remove container height', async () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         const frames = createRandomFrames(12)
 
@@ -150,7 +150,7 @@ describe('@masonry-grid/vanilla', () => {
       })
 
       it('should remove transforms from frames', async () => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
 
         const frames = createRandomFrames(12)
 

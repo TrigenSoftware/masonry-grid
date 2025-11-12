@@ -3,10 +3,10 @@ import {
   createContainer,
   createRandomFrames
 } from '../test/utils.mock.js'
-import { MasonryGrid } from './MasonryGrid.js'
+import { RegularMasonryGrid } from './RegularMasonryGrid.js'
 
 const meta: Meta = {
-  title: 'MasonryGrid',
+  title: 'RegularMasonryGrid',
   parameters: {
     layout: 'padded'
   },
@@ -56,12 +56,12 @@ type Story = StoryObj
 
 function createGrid() {
   const container = createContainer()
-  let grid: MasonryGrid | undefined
+  let grid: RegularMasonryGrid | undefined
 
   return (args: any) => {
     if (!grid) {
       void Promise.resolve().then(() => {
-        grid = new MasonryGrid(container)
+        grid = new RegularMasonryGrid(container)
       })
     }
 

@@ -3,7 +3,7 @@ import {
   BaseMasonryGrid
 } from './BaseMasonryGrid.js'
 
-export class MasonryGrid extends BaseMasonryGrid {
+export class RegularMasonryGrid extends BaseMasonryGrid {
   protected reflow(isMutation = false) {
     const { columnsCount } = this
 
@@ -102,3 +102,8 @@ export class MasonryGrid extends BaseMasonryGrid {
     }
   }
 }
+
+/**
+ * @deprecated Use `RegularMasonryGrid` instead.
+ */
+export const MasonryGrid = RegularMasonryGrid

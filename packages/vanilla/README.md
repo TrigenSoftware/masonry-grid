@@ -74,9 +74,9 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
   </div>
 </div>
 <script type="module">
-import { BalancedMasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
+import { BalancedMasonryGrid as MasonryGrid } from 'https://cdn.skypack.dev/@masonry-grid/vanilla'
 
-new BalancedMasonryGrid(document.querySelector('.masonry'))
+new MasonryGrid(document.querySelector('.masonry'))
 </script>
 ```
 
