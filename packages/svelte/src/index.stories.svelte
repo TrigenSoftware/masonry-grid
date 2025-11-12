@@ -6,9 +6,11 @@
     getRandomColor
   } from '../test/utils.mock.js'
   import {
-    MasonryGrid,
+    RegularMasonryGrid,
     BalancedMasonryGrid,
-    Frame
+    Frame,
+    SpannedMasonryGrid,
+    SpannedFrame
   } from './index.js'
 
   const { Story } = defineMeta({
@@ -52,6 +54,15 @@
           step: 10
         },
         description: 'Width of each item'
+      },
+      precision: {
+        control: {
+          type: 'number',
+          min: 1,
+          max: 100,
+          step: 10
+        },
+        description: 'Span precision for the grid'
       }
     }
   });
@@ -89,10 +100,10 @@
     containerWidth
   })}
     {@const items = createItems(itemsCount)}
-    <MasonryGrid
+    <RegularMasonryGrid
       {frameWidth}
       {gap}
-      style='width: {containerWidth}%'
+      style='width: {containerWidth}%; margin: 0 auto;'
     >
       {#each items as item (item.id)}
         <Frame
@@ -103,7 +114,7 @@
           {item.id + 1}
         </Frame>
       {/each}
-    </MasonryGrid>
+    </RegularMasonryGrid>
   {/snippet}
 </Story>
 
@@ -123,7 +134,7 @@
     <BalancedMasonryGrid
       {frameWidth}
       {gap}
-      style='width: {containerWidth}%'
+      style='width: {containerWidth}%; margin: 0 auto;'
     >
       {#each items as item (item.id)}
         <Frame
@@ -138,3 +149,36 @@
   {/snippet}
 </Story>
 
+<Story name='Spanned' args={{
+  itemsCount: 12,
+  containerWidth: 100,
+  gap: 10,
+  frameWidth: 200,
+  precision: 10
+}}>
+  {#snippet template({
+    itemsCount,
+    frameWidth,
+    gap,
+    containerWidth,
+    precision
+  })}
+    {@const items = createItems(itemsCount)}
+    <SpannedMasonryGrid
+      {frameWidth}
+      {gap}
+      {precision}
+      style='width: {containerWidth}%; margin: 0 auto;'
+    >
+      {#each items as item (item.id)}
+        <SpannedFrame
+          width={item.width}
+          height={item.height}
+          innerStyle='background-color: {item.backgroundColor}; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: bold; color: rgba(0, 0, 0, 0.5);'
+        >
+          {item.id + 1}
+        </SpannedFrame>
+      {/each}
+    </SpannedMasonryGrid>
+  {/snippet}
+</Story>

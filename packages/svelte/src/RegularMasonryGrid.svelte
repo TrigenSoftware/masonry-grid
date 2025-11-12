@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { MasonryGrid as VanillaMasonryGrid } from '@masonry-grid/vanilla'
+  import { RegularMasonryGrid as VanillaRegularMasonryGrid } from '@masonry-grid/vanilla'
   import BaseMasonryGrid from './BaseMasonryGrid.svelte'
   import type { MasonryGridProps } from './types.js';
 
@@ -9,6 +9,6 @@
 </script>
 
 <BaseMasonryGrid
-  type={VanillaMasonryGrid}
+  type={VanillaRegularMasonryGrid}
   {...props}
 />

@@ -6,9 +6,11 @@ import {
   getRandomColor
 } from '../test/utils.mock.js'
 import {
-  MasonryGrid,
+  RegularMasonryGrid,
   BalancedMasonryGrid,
-  Frame
+  Frame,
+  SpannedMasonryGrid,
+  SpannedFrame
 } from './index.js'
 
 const meta: Meta = {
@@ -96,11 +98,12 @@ export const Default: Story = {
     frameWidth: 200
   },
   render: (args: any) => (
-    <MasonryGrid
+    <RegularMasonryGrid
       frameWidth={args.frameWidth}
       gap={args.gap}
       style={{
-        width: `${args.containerWidth}%`
+        width: `${args.containerWidth}%`,
+        margin: '0 auto'
       }}
     >
       <For each={createItems(args.itemsCount)}>
@@ -114,7 +117,7 @@ export const Default: Story = {
           </Frame>
         )}
       </For>
-    </MasonryGrid>
+    </RegularMasonryGrid>
   )
 }
 
@@ -130,7 +133,8 @@ export const Balanced: Story = {
       frameWidth={args.frameWidth}
       gap={args.gap}
       style={{
-        width: `${args.containerWidth}%`
+        width: `${args.containerWidth}%`,
+        margin: '0 auto'
       }}
     >
       <For each={createItems(args.itemsCount)}>
@@ -147,3 +151,77 @@ export const Balanced: Story = {
     </BalancedMasonryGrid>
   )
 }
+
+function createSpannedItems(itemsCount: number) {
+  const items = []
+  let aspectRatio: AspectRatio | undefined
+
+  for (let i = 0; i < itemsCount; i++) {
+    aspectRatio = getRandomAspectRatio(aspectRatio)
+
+    const backgroundColor = getRandomColor()
+
+    items.push({
+      id: i,
+      width: aspectRatio[0],
+      height: aspectRatio[1],
+      innerStyle: {
+        'background-color': backgroundColor,
+        'display': 'flex',
+        'align-items': 'center',
+        'justify-content': 'center',
+        'font-size': '14px',
+        'font-weight': 'bold',
+        'color': 'rgba(0, 0, 0, 0.5)'
+      }
+    })
+  }
+
+  return items
+}
+
+export const Spanned: Story = {
+  args: {
+    itemsCount: 12,
+    containerWidth: 100,
+    gap: 10,
+    frameWidth: 200,
+    precision: 10
+  },
+  argTypes: {
+    ...meta.argTypes,
+    precision: {
+      control: {
+        type: 'number',
+        min: 1,
+        max: 100,
+        step: 10
+      },
+      description: 'Span precision for the grid'
+    }
+  },
+  render: (args: any) => (
+    <SpannedMasonryGrid
+      frameWidth={args.frameWidth}
+      gap={args.gap}
+      precision={args.precision}
+      style={{
+        width: `${args.containerWidth}%`,
+        margin: '0 auto'
+      }}
+    >
+      <For each={createSpannedItems(args.itemsCount)}>
+        {item => (
+          <SpannedFrame
+            width={item.width}
+            height={item.height}
+            innerStyle={item.innerStyle}
+          >
+            {item.id + 1}
+          </SpannedFrame>
+        )}
+      </For>
+    </SpannedMasonryGrid>
+  )
+}
+

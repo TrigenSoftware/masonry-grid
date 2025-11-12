@@ -1,5 +1,5 @@
 <script lang="ts">
-  import MasonryGrid from '../src/MasonryGrid.svelte'
+  import RegularMasonryGrid from '../src/RegularMasonryGrid.svelte'
   import Frame from '../src/Frame.svelte'
 
   let {
@@ -7,11 +7,11 @@
   } = $props()
 </script>
 
-<MasonryGrid {frameWidth}>
+<RegularMasonryGrid {frameWidth}>
   <Frame width={1} height={1}>
     Item 1
   </Frame>
   <Frame width={2} height={3}>
     Item 2
   </Frame>
-</MasonryGrid>
+</RegularMasonryGrid>

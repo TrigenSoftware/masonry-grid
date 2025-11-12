@@ -33,11 +33,11 @@ A fast, lightweight, and responsive masonry grid layout library for SolidJS.
 _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-grid.js.org)_
 
 ```tsx
-import { BalancedMasonryGrid, Frame } from '@masonry-grid/solid-js'
+import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/solid-js'
 
 function Gallery() {
   return (
-    <BalancedMasonryGrid
+    <MasonryGrid
       frameWidth={200}
       gap={10}
     >
@@ -59,7 +59,7 @@ function Gallery() {
       <Frame width={4} height={3}>
         <img src='https://picsum.photos/400/300' alt='Photo 6' />
       </Frame>
-    </BalancedMasonryGrid>
+    </MasonryGrid>
   )
 }
 ```

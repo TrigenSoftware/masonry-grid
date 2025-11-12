@@ -7,9 +7,11 @@ import {
   getRandomColor
 } from '../test/utils.mock.js'
 import {
-  MasonryGrid,
+  RegularMasonryGrid,
   BalancedMasonryGrid,
-  Frame
+  Frame,
+  SpannedMasonryGrid,
+  SpannedFrame
 } from './index.js'
 
 const meta: Meta = {
@@ -110,15 +112,16 @@ export const Default: Story = {
     const items = useItems(itemsCount)
 
     return (
-      <MasonryGrid
+      <RegularMasonryGrid
         frameWidth={frameWidth}
         gap={gap}
         style={{
-          width: `${containerWidth}%`
+          width: `${containerWidth}%`,
+          margin: '0 auto'
         }}
       >
         {items}
-      </MasonryGrid>
+      </RegularMasonryGrid>
     )
   }
 }
@@ -143,7 +146,8 @@ export const Balanced: Story = {
         frameWidth={frameWidth}
         gap={gap}
         style={{
-          width: `${containerWidth}%`
+          width: `${containerWidth}%`,
+          margin: '0 auto'
         }}
       >
         {items}
@@ -151,3 +155,82 @@ export const Balanced: Story = {
     )
   }
 }
+
+function useSpannedItems(itemsCount: number) {
+  return useMemo(() => {
+    let aspectRatio: AspectRatio
+
+    return Array.from({
+      length: itemsCount
+    }, (_, i) => {
+      aspectRatio = getRandomAspectRatio(aspectRatio)
+
+      const backgroudColor = getRandomColor()
+
+      return (
+        <SpannedFrame
+          key={i}
+          width={aspectRatio[0]}
+          height={aspectRatio[1]}
+          innerStyle={{
+            backgroundColor: backgroudColor,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: '14px',
+            fontWeight: 'bold',
+            color: 'rgba(0, 0, 0, 0.5)'
+          }}
+        >
+          {i + 1}
+        </SpannedFrame>
+      )
+    })
+  }, [itemsCount])
+}
+
+export const Spanned: Story = {
+  args: {
+    itemsCount: 12,
+    containerWidth: 100,
+    gap: 10,
+    frameWidth: 200,
+    precision: 10
+  },
+  argTypes: {
+    ...meta.argTypes,
+    precision: {
+      control: {
+        type: 'number',
+        min: 1,
+        max: 100,
+        step: 10
+      },
+      description: 'Span precision for the grid'
+    }
+  },
+  render({
+    itemsCount,
+    frameWidth,
+    gap,
+    containerWidth,
+    precision
+  }: any) {
+    const items = useSpannedItems(itemsCount)
+
+    return (
+      <SpannedMasonryGrid
+        frameWidth={frameWidth}
+        gap={gap}
+        precision={precision}
+        style={{
+          width: `${containerWidth}%`,
+          margin: '0 auto'
+        }}
+      >
+        {items}
+      </SpannedMasonryGrid>
+    )
+  }
+}
+

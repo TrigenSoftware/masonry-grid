@@ -8,7 +8,7 @@ import {
   render,
   cleanup
 } from '@testing-library/svelte'
-import MasonryGrid from './MasonryGrid.svelte'
+import RegularMasonryGrid from './RegularMasonryGrid.svelte'
 import Frame from './Frame.svelte'
 import MasonryGridWithFrames from '../test/MasonryGridWithFrames.svelte'
 import BalancedMasonryGridWithFrames from '../test/BalancedMasonryGridWithFrames.svelte'
@@ -19,16 +19,16 @@ describe('@masonry-grid/svelte', () => {
     cleanup()
   })
 
-  describe('MasonryGrid', () => {
+  describe('RegularMasonryGrid', () => {
     it('should render with default div element', () => {
-      const { container } = render(MasonryGrid)
+      const { container } = render(RegularMasonryGrid)
       const gridElement = container.querySelector('div')
 
       expect(gridElement).toBeInTheDocument()
     })
 
     it('should render with custom element using as prop', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           as: 'section'
         }
@@ -41,7 +41,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should apply frameWidth prop to grid styles', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           frameWidth: 200
         }
@@ -52,7 +52,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should apply frameWidth prop with string value', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           frameWidth: '15rem'
         }
@@ -63,7 +63,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should apply gap prop to grid styles', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           gap: 10
         }
@@ -74,7 +74,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should apply gap prop with string value', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           gap: '1rem'
         }
@@ -85,7 +85,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should pass through custom class', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           class: 'custom-grid'
         }
@@ -96,7 +96,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should merge custom styles with default styles', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           style: 'background-color: red;'
         }
@@ -109,7 +109,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should not override existing gridTemplateColumns in custom style', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           frameWidth: 200,
           style: 'grid-template-columns: repeat(3, 1fr);'
@@ -121,7 +121,7 @@ describe('@masonry-grid/svelte', () => {
     })
 
     it('should not override existing gap in custom style', () => {
-      const { container } = render(MasonryGrid, {
+      const { container } = render(RegularMasonryGrid, {
         props: {
           gap: 10,
           style: 'gap: 2rem;'
@@ -255,7 +255,7 @@ describe('@masonry-grid/svelte', () => {
   })
 
   describe('Integration', () => {
-    it('should render MasonryGrid with Frame children', () => {
+    it('should render RegularMasonryGrid with Frame children', () => {
       const { container } = render(MasonryGridWithFrames, {
         props: {
           frameWidth: 200

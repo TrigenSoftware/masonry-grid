@@ -34,10 +34,10 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
 
 ```svelte
 <script>
-  import { BalancedMasonryGrid, Frame } from '@masonry-grid/svelte'
+  import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/svelte'
 </script>
 
-<BalancedMasonryGrid
+<MasonryGrid
   frameWidth={200}
   gap={10}
 >
@@ -59,7 +59,7 @@ _Read the docs and explore examples at [masonry-grid.js.org](https://masonry-gri
   <Frame width={4} height={3}>
     <img src='https://picsum.photos/400/300' alt='Photo 6' />
   </Frame>
-</BalancedMasonryGrid>
+</MasonryGrid>
 ```
 
 ## Install

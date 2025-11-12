@@ -9,7 +9,7 @@ import {
   cleanup
 } from '@solidjs/testing-library'
 import {
-  MasonryGrid,
+  RegularMasonryGrid,
   BalancedMasonryGrid,
   Frame
 } from './index.js'
@@ -19,16 +19,16 @@ describe('@masonry-grid/solid-js', () => {
     cleanup()
   })
 
-  describe('MasonryGrid', () => {
+  describe('RegularMasonryGrid', () => {
     it('should render with default div element', () => {
-      const { container } = render(() => <MasonryGrid/>)
+      const { container } = render(() => <RegularMasonryGrid/>)
       const gridElement = container.querySelector('div')
 
       expect(gridElement).toBeInTheDocument()
     })
 
     it('should render with custom element using as prop', () => {
-      const { container } = render(() => <MasonryGrid as='section'/>)
+      const { container } = render(() => <RegularMasonryGrid as='section'/>)
       const gridElement = container.querySelector('section') as HTMLElement
 
       expect(gridElement).toBeInTheDocument()
@@ -37,35 +37,35 @@ describe('@masonry-grid/solid-js', () => {
     })
 
     it('should apply frameWidth prop to grid styles', () => {
-      const { container } = render(() => <MasonryGrid frameWidth={200}/>)
+      const { container } = render(() => <RegularMasonryGrid frameWidth={200}/>)
       const gridElement = container.querySelector('div[style]') as HTMLDivElement
 
       expect(gridElement.style.gridTemplateColumns).toBe('repeat(auto-fill, minmax(200px, 1fr))')
     })
 
     it('should apply frameWidth prop with string value', () => {
-      const { container } = render(() => <MasonryGrid frameWidth='15rem'/>)
+      const { container } = render(() => <RegularMasonryGrid frameWidth='15rem'/>)
       const gridElement = container.querySelector('div[style]') as HTMLDivElement
 
       expect(gridElement.style.gridTemplateColumns).toBe('repeat(auto-fill, minmax(15rem, 1fr))')
     })
 
     it('should apply gap prop to grid styles', () => {
-      const { container } = render(() => <MasonryGrid gap={10}/>)
+      const { container } = render(() => <RegularMasonryGrid gap={10}/>)
       const gridElement = container.querySelector('div') as HTMLDivElement
 
       expect(gridElement.style.gap).toBe('10px')
     })
 
     it('should apply gap prop with string value', () => {
-      const { container } = render(() => <MasonryGrid gap='1rem'/>)
+      const { container } = render(() => <RegularMasonryGrid gap='1rem'/>)
       const gridElement = container.querySelector('div') as HTMLDivElement
 
       expect(gridElement.style.gap).toBe('1rem')
     })
 
     it('should pass through custom className', () => {
-      const { container } = render(() => <MasonryGrid class='custom-grid'/>)
+      const { container } = render(() => <RegularMasonryGrid class='custom-grid'/>)
       const gridElement = container.querySelector('div')
 
       expect(gridElement).toHaveClass('custom-grid')
@@ -73,7 +73,7 @@ describe('@masonry-grid/solid-js', () => {
 
     it('should merge custom styles with default styles', () => {
       const { container } = render(() => (
-        <MasonryGrid
+        <RegularMasonryGrid
           style={{
             'background-color': 'red'
           }}
@@ -88,7 +88,7 @@ describe('@masonry-grid/solid-js', () => {
 
     it('should not override existing gridTemplateColumns in custom style', () => {
       const { container } = render(() => (
-        <MasonryGrid
+        <RegularMasonryGrid
           frameWidth={200}
           style={{
             'grid-template-columns': 'repeat(3, 1fr)'
@@ -102,7 +102,7 @@ describe('@masonry-grid/solid-js', () => {
 
     it('should not override existing gap in custom style', () => {
       const { container } = render(() => (
-        <MasonryGrid
+        <RegularMasonryGrid
           gap={10}
           style={{
             gap: '2rem'
@@ -217,9 +217,9 @@ describe('@masonry-grid/solid-js', () => {
   })
 
   describe('Integration', () => {
-    it('should render MasonryGrid with Frame children', () => {
+    it('should render RegularMasonryGrid with Frame children', () => {
       const { container } = render(() => (
-        <MasonryGrid frameWidth={200}>
+        <RegularMasonryGrid frameWidth={200}>
           <Frame
             width={1}
             height={1}
@@ -232,7 +232,7 @@ describe('@masonry-grid/solid-js', () => {
           >
             Item 2
           </Frame>
-        </MasonryGrid>
+        </RegularMasonryGrid>
       ))
       const gridElement = container.querySelector('div')
       const frames = container.querySelectorAll('[style*="--width"]')

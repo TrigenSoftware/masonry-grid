@@ -8,7 +8,7 @@ import {
 } from 'solid-js'
 import { Dynamic } from 'solid-js/web'
 import {
-  MasonryGrid as VanillaMasonryGrid,
+  RegularMasonryGrid as VanillaRegularMasonryGrid,
   BalancedMasonryGrid as VanillaBalancedMasonryGrid
 } from '@masonry-grid/vanilla'
 import {
@@ -100,18 +100,23 @@ function BaseMasonryGrid(
 
 export interface MasonryGridProps extends Omit<BaseMasonryGridProps, 'type'> {}
 
-export function MasonryGrid<
+export function RegularMasonryGrid<
   T extends ElementType = 'div'
 >(
   props: MasonryGridProps & AsElementProps<T>
 ) {
   return (
     <BaseMasonryGrid<T>
-      type={VanillaMasonryGrid}
+      type={VanillaRegularMasonryGrid}
       {...props}
     />
   )
 }
+
+/**
+ * @deprecated Use `RegularMasonryGrid` instead.
+ */
+export const MasonryGrid = RegularMasonryGrid
 
 export function BalancedMasonryGrid<
   T extends ElementType = 'div'
@@ -171,3 +176,142 @@ export function Frame(
     />
   )
 }
+
+export interface SpannedMasonryGridProps {
+  /**
+   * Style for the inner container element.
+   */
+  innerStyle?: JSX.CSSProperties
+  /**
+   * Minimum width of each frame of the grid.
+   * If not provided, the grid will auto-fit as many columns as possible.
+   */
+  frameWidth?: number | string
+  /**
+   * Grid gap between items.
+   */
+  gap?: number | string
+  /**
+   * Precision for span calculation.
+   * Higher precision results in more accurate spans but may impact performance and cause bugs in some browsers.
+   */
+  precision?: number
+}
+
+const DEFAULT_SPAN_PRECISION = 10
+const SPANNED_INNER_STYLE: JSX.CSSProperties = {
+  'display': 'grid',
+  'clip-path': 'margin-box',
+  'margin': 'calc(-1 * var(--gap, 0) / 2)',
+  'grid-template-columns': 'repeat(auto-fill, minmax(var(--frame-width), 1fr))'
+}
+
+export function SpannedMasonryGrid<
+  T extends ElementType
+>(
+  props: SpannedMasonryGridProps & AsElementProps<T>
+): JSX.Element
+
+export function SpannedMasonryGrid(
+  props: SpannedMasonryGridProps & AsElementProps<'div'>
+) {
+  const merged = mergeProps({
+    as: 'div' as const,
+    precision: DEFAULT_SPAN_PRECISION
+  }, props)
+  const [local, others] = splitProps(merged, [
+    'as',
+    'precision',
+    'frameWidth',
+    'gap',
+    'style',
+    'innerStyle',
+    'children'
+  ])
+
+  return (
+    <Dynamic
+      component={local.as}
+      style={{
+        '--frame-width': formatUnit(local.frameWidth),
+        '--gap': formatUnit(local.gap),
+        '--percision': local.precision,
+        ...local.style
+      }}
+      {...others}
+    >
+      <div
+        style={{
+          ...SPANNED_INNER_STYLE,
+          ...local.innerStyle
+        }}
+      >
+        {local.children}
+      </div>
+    </Dynamic>
+  )
+}
+
+export interface SpannedFrameProps extends FrameProps {
+  /**
+   * Style for the inner container element.
+   */
+  innerStyle?: JSX.CSSProperties
+}
+
+const SPANNED_FRAME_STYLE: JSX.CSSProperties = {
+  'aspect-ratio': 'var(--width) / var(--height)',
+  'width': '100%',
+  'height': '100%',
+  'position': 'relative',
+  'grid-row': 'span calc(var(--height) / var(--width) * var(--percision))'
+}
+const SPANNED_FRAME_INNER_STYLE: JSX.CSSProperties = {
+  position: 'absolute',
+  inset: 'calc(var(--gap, 0) / 2)'
+}
+
+export function SpannedFrame<
+  T extends ElementType = 'div'
+>(
+  props: SpannedFrameProps & AsElementProps<T>
+): JSX.Element
+
+export function SpannedFrame(
+  props: SpannedFrameProps & AsElementProps<'div'>
+) {
+  const merged = mergeProps({
+    as: 'div' as const
+  }, props)
+  const [local, others] = splitProps(merged, [
+    'as',
+    'width',
+    'height',
+    'style',
+    'innerStyle',
+    'children'
+  ])
+
+  return (
+    <Dynamic
+      component={local.as}
+      style={{
+        '--width': local.width,
+        '--height': local.height,
+        ...SPANNED_FRAME_STYLE,
+        ...local.style
+      }}
+      {...others}
+    >
+      <div
+        style={{
+          ...SPANNED_FRAME_INNER_STYLE,
+          ...local.innerStyle
+        }}
+      >
+        {local.children}
+      </div>
+    </Dynamic>
+  )
+}
+

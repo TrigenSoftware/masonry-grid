@@ -9,7 +9,7 @@ import {
   cleanup
 } from '@testing-library/react'
 import {
-  MasonryGrid,
+  RegularMasonryGrid,
   BalancedMasonryGrid,
   Frame
 } from './index.js'
@@ -19,10 +19,10 @@ describe('@masonry-grid/react', () => {
     cleanup()
   })
 
-  describe('MasonryGrid', () => {
+  describe('RegularMasonryGrid', () => {
     it('should render with default div element', () => {
       const { container } = render(
-        <MasonryGrid/>
+        <RegularMasonryGrid/>
       )
       const gridElement = container.querySelector('div')
 
@@ -31,7 +31,7 @@ describe('@masonry-grid/react', () => {
 
     it('should render with custom element using as prop', () => {
       const { container } = render(
-        <MasonryGrid as='section'/>
+        <RegularMasonryGrid as='section'/>
       )
       const gridElement = container.querySelector('section') as HTMLElement
 
@@ -42,7 +42,7 @@ describe('@masonry-grid/react', () => {
 
     it('should apply frameWidth prop to grid styles', () => {
       const { container } = render(
-        <MasonryGrid frameWidth={200}/>
+        <RegularMasonryGrid frameWidth={200}/>
       )
       const gridElement = container.querySelector('div[style]') as HTMLDivElement
 
@@ -51,7 +51,7 @@ describe('@masonry-grid/react', () => {
 
     it('should apply frameWidth prop with string value', () => {
       const { container } = render(
-        <MasonryGrid frameWidth='15rem'/>
+        <RegularMasonryGrid frameWidth='15rem'/>
       )
       const gridElement = container.querySelector('div[style]') as HTMLDivElement
 
@@ -60,7 +60,7 @@ describe('@masonry-grid/react', () => {
 
     it('should apply gap prop to grid styles', () => {
       const { container } = render(
-        <MasonryGrid gap={10}/>
+        <RegularMasonryGrid gap={10}/>
       )
       const gridElement = container.querySelector('div') as HTMLDivElement
 
@@ -69,7 +69,7 @@ describe('@masonry-grid/react', () => {
 
     it('should apply gap prop with string value', () => {
       const { container } = render(
-        <MasonryGrid gap='1rem'/>
+        <RegularMasonryGrid gap='1rem'/>
       )
       const gridElement = container.querySelector('div') as HTMLDivElement
 
@@ -78,7 +78,7 @@ describe('@masonry-grid/react', () => {
 
     it('should pass through custom className', () => {
       const { container } = render(
-        <MasonryGrid className='custom-grid'/>
+        <RegularMasonryGrid className='custom-grid'/>
       )
       const gridElement = container.querySelector('div')
 
@@ -87,7 +87,7 @@ describe('@masonry-grid/react', () => {
 
     it('should merge custom styles with default styles', () => {
       const { container } = render(
-        <MasonryGrid
+        <RegularMasonryGrid
           style={{
             backgroundColor: 'red'
           }}
@@ -102,7 +102,7 @@ describe('@masonry-grid/react', () => {
 
     it('should not override existing gridTemplateColumns in custom style', () => {
       const { container } = render(
-        <MasonryGrid
+        <RegularMasonryGrid
           frameWidth={200}
           style={{
             gridTemplateColumns: 'repeat(3, 1fr)'
@@ -116,7 +116,7 @@ describe('@masonry-grid/react', () => {
 
     it('should not override existing gap in custom style', () => {
       const { container } = render(
-        <MasonryGrid
+        <RegularMasonryGrid
           gap={10}
           style={{
             gap: '2rem'
@@ -231,9 +231,9 @@ describe('@masonry-grid/react', () => {
   })
 
   describe('Integration', () => {
-    it('should render MasonryGrid with Frame children', () => {
+    it('should render RegularMasonryGrid with Frame children', () => {
       const { container } = render(
-        <MasonryGrid frameWidth={200}>
+        <RegularMasonryGrid frameWidth={200}>
           <Frame
             width={1}
             height={1}
@@ -246,7 +246,7 @@ describe('@masonry-grid/react', () => {
           >
             Item 2
           </Frame>
-        </MasonryGrid>
+        </RegularMasonryGrid>
       )
       const gridElement = container.querySelector('div')
       const frames = container.querySelectorAll('[style*="--width"]')

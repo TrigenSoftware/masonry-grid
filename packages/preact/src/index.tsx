@@ -4,7 +4,7 @@ import type {
   JSX
 } from 'preact'
 import {
-  MasonryGrid as VanillaMasonryGrid,
+  RegularMasonryGrid as VanillaRegularMasonryGrid,
   BalancedMasonryGrid as VanillaBalancedMasonryGrid
 } from '@masonry-grid/vanilla'
 import {
@@ -96,18 +96,23 @@ function BaseMasonryGrid({
 
 export interface MasonryGridProps extends Omit<BaseMasonryGridProps, 'type'> {}
 
-export function MasonryGrid<
+export function RegularMasonryGrid<
   T extends ElementType = 'div'
 >(
   props: MasonryGridProps & AsElementProps<T>
 ) {
   return (
     <BaseMasonryGrid<T>
-      type={VanillaMasonryGrid}
+      type={VanillaRegularMasonryGrid}
       {...props}
     />
   )
 }
+
+/**
+ * @deprecated Use `RegularMasonryGrid` instead.
+ */
+export const MasonryGrid = RegularMasonryGrid
 
 export function BalancedMasonryGrid<
   T extends ElementType = 'div'
@@ -158,5 +163,129 @@ export function Frame({
       } as CSSProperties}
       {...props}
     />
+  )
+}
+
+export interface SpannedMasonryGridProps {
+  /**
+   * Style for the inner container element.
+   */
+  innerStyle?: CSSProperties
+  /**
+   * Minimum width of each frame of the grid.
+   * If not provided, the grid will auto-fit as many columns as possible.
+   */
+  frameWidth?: number | string
+  /**
+   * Grid gap between items.
+   */
+  gap?: number | string
+  /**
+   * Precision for span calculation.
+   * Higher precision results in more accurate spans but may impact performance and cause bugs in some browsers.
+   */
+  precision?: number
+}
+
+const DEFAULT_SPAN_PRECISION = 10
+const SPANNED_INNER_STYLE = {
+  display: 'grid',
+  clipPath: 'margin-box',
+  margin: 'calc(-1 * var(--gap, 0) / 2)',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(var(--frame-width), 1fr))'
+}
+
+export function SpannedMasonryGrid<
+  T extends ElementType
+>(
+  props: SpannedMasonryGridProps & AsElementProps<T>
+): JSX.Element
+
+export function SpannedMasonryGrid({
+  ref,
+  as: As = 'div',
+  precision = DEFAULT_SPAN_PRECISION,
+  frameWidth,
+  gap,
+  style,
+  innerStyle,
+  children,
+  ...props
+}: SpannedMasonryGridProps & AsElementProps<'div'>) {
+  return (
+    <As
+      style={{
+        '--frame-width': formatUnit(frameWidth),
+        '--gap': formatUnit(gap),
+        '--percision': precision,
+        ...style
+      } as CSSProperties}
+      {...props}
+    >
+      <div
+        style={{
+          ...SPANNED_INNER_STYLE,
+          ...innerStyle
+        }}
+      >
+        {children}
+      </div>
+    </As>
+  )
+}
+
+export interface SpannedFrameProps extends FrameProps {
+  /**
+   * Style for the inner container element.
+   */
+  innerStyle?: CSSProperties
+}
+
+const SPANNED_FRAME_STYLE: CSSProperties = {
+  aspectRatio: 'var(--width) / var(--height)',
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+  gridRow: 'span calc(var(--height) / var(--width) * var(--percision))'
+}
+const SPANNED_FRAME_INNER_STYLE: CSSProperties = {
+  position: 'absolute',
+  inset: 'calc(var(--gap, 0) / 2)'
+}
+
+export function SpannedFrame<
+  T extends ElementType = 'div'
+>(
+  props: SpannedFrameProps & AsElementProps<T>
+): JSX.Element
+
+export function SpannedFrame({
+  as: As = 'div',
+  width,
+  height,
+  style,
+  innerStyle,
+  children,
+  ...props
+}: SpannedFrameProps & AsElementProps<'div'>) {
+  return (
+    <As
+      style={{
+        '--width': width,
+        '--height': height,
+        ...SPANNED_FRAME_STYLE,
+        ...style
+      } as CSSProperties}
+      {...props}
+    >
+      <div
+        style={{
+          ...SPANNED_FRAME_INNER_STYLE,
+          ...innerStyle
+        }}
+      >
+        {children}
+      </div>
+    </As>
   )
 }
