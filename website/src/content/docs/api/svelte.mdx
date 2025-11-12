@@ -5,13 +5,13 @@ sidebar:
   order: 4
 ---
 
-## MasonryGrid
+## RegularMasonryGrid
 
 Standard masonry layout that stacks items by pulling them up to fill gaps.
 
 ```svelte
 <script>
-  import { MasonryGrid, Frame } from '@masonry-grid/svelte'
+  import { RegularMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/svelte'
 </script>
 
 <MasonryGrid
@@ -39,10 +39,10 @@ Balanced masonry layout that reorders items inside rows to minimize overall grid
 
 ```svelte
 <script>
-  import { BalancedMasonryGrid, Frame } from '@masonry-grid/svelte'
+  import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/svelte'
 </script>
 
-<BalancedMasonryGrid
+<MasonryGrid
   frameWidth={200}
   gap={10}
 >
@@ -50,12 +50,12 @@ Balanced masonry layout that reorders items inside rows to minimize overall grid
     <img src='...' alt='' />
   </Frame>
   <!-- more frames... -->
-</BalancedMasonryGrid>
+</MasonryGrid>
 ```
 
 ### Props
 
-Same as `MasonryGrid`.
+Same as `RegularMasonryGrid`.
 
 ## Frame
 
@@ -82,6 +82,57 @@ Component for defining masonry grid item with aspect ratio.
 - `as?: string` - Render as a different element (default: `'div'`).
 - All other HTML attributes are passed through.
 
+## SpannedMasonryGrid
+
+Experemental CSS-only masonry layout that uses `grid-row: span x` to create masonry effect.
+
+```svelte
+<script>
+  import { SpannedMasonryGrid as MasonryGrid, SpannedFrame as Frame } from '@masonry-grid/svelte'
+</script>
+
+<MasonryGrid
+  frameWidth={200}
+  gap={10}
+>
+  <Frame width={4} height={3}>
+    <img src='...' alt='' />
+  </Frame>
+  <!-- more frames... -->
+</MasonryGrid>
+```
+
+### Props
+
+Same as `RegularMasonryGrid`, with an additional props:
+
+- `precision?: number` - Precision for span calculation (default: `10`). Affects how accurately frames will maintain their aspect ratios. Higher precision results in more accurate sizes but may impact performance and cause bugs in some browsers.
+- `innerStyle?: string` - Additional styles applied to the inner container that holds the frames.
+
+## SpannedFrame
+
+Component for defining spanned masonry grid item with aspect ratio.
+
+```svelte
+<script>
+  import { SpannedFrame as Frame } from '@masonry-grid/svelte'
+</script>
+
+<Frame
+  width={16}
+  height={9}
+  as='li'
+>
+  <img src='...' alt='' />
+</Frame>
+```
+
+### Props
+
+Same as `Frame`, with an additional prop:
+
+- `innerStyle?: string` - Additional styles applied to the inner container that holds the content.
+
 ## masonry
 
 Svelte action for advanced use cases when you need direct access to the masonry grid instance.
@@ -89,11 +140,11 @@ Svelte action for advanced use cases when you need direct access to the masonry 
 ```svelte
 <script>
   import { masonry } from '@masonry-grid/svelte'
-  import { MasonryGrid as VanillaMasonryGrid } from '@masonry-grid/vanilla'
+  import { RegularMasonryGrid } from '@masonry-grid/vanilla'
 </script>
 
 <div
-  use:masonry={{ type: VanillaMasonryGrid }}
+  use:masonry={{ type: RegularMasonryGrid }}
   style="display: grid; overflow: hidden; gap: 10px;"
 >
   <!-- children -->

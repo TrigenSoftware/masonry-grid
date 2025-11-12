@@ -124,11 +124,11 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
     2. Now you can import the components and start using them in your React project:
 
         ```tsx
-        import { BalancedMasonryGrid, Frame } from '@masonry-grid/react'
+        import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/react'
 
         function Gallery() {
           return (
-            <BalancedMasonryGrid
+            <MasonryGrid
               frameWidth={200}
               gap={10}
             >
@@ -150,7 +150,7 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
               <Frame width={4} height={3}>
                 <img src='https://picsum.photos/400/300' alt='Photo 6' />
               </Frame>
-            </BalancedMasonryGrid>
+            </MasonryGrid>
           )
         }
         ```
@@ -181,11 +181,11 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
     2. Now you can import the components and start using them in your Preact project:
 
         ```tsx
-        import { BalancedMasonryGrid, Frame } from '@masonry-grid/preact'
+        import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/preact'
 
         function Gallery() {
           return (
-            <BalancedMasonryGrid
+            <MasonryGrid
               frameWidth={200}
               gap={10}
             >
@@ -207,7 +207,7 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
               <Frame width={4} height={3}>
                 <img src='https://picsum.photos/400/300' alt='Photo 6' />
               </Frame>
-            </BalancedMasonryGrid>
+            </MasonryGrid>
           )
         }
         ```
@@ -239,10 +239,10 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
 
         ```svelte
         <script>
-          import { BalancedMasonryGrid, Frame } from '@masonry-grid/svelte'
+          import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/svelte'
         </script>
 
-        <BalancedMasonryGrid
+        <MasonryGrid
           frameWidth={200}
           gap={10}
         >
@@ -264,7 +264,7 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
           <Frame width={4} height={3}>
             <img src='https://picsum.photos/400/300' alt='Photo 6' />
           </Frame>
-        </BalancedMasonryGrid>
+        </MasonryGrid>
         ```
 
     3. Run your Svelte application and see the masonry grid in action!
@@ -293,11 +293,11 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
     2. Now you can import the components and start using them in your SolidJS project:
 
         ```tsx
-        import { BalancedMasonryGrid, Frame } from '@masonry-grid/solid-js'
+        import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/solid-js'
 
         function Gallery() {
           return (
-            <BalancedMasonryGrid
+            <MasonryGrid
               frameWidth={200}
               gap={10}
             >
@@ -319,7 +319,7 @@ Masonry Grid is a fast, lightweight, and responsive masonry grid layout library.
               <Frame width={4} height={3}>
                 <img src='https://picsum.photos/400/300' alt='Photo 6' />
               </Frame>
-            </BalancedMasonryGrid>
+            </MasonryGrid>
           )
         }
         ```

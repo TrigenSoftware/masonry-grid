@@ -5,12 +5,12 @@ sidebar:
   order: 2
 ---
 
-## MasonryGrid
+## RegularMasonryGrid
 
 Standard masonry layout that stacks items by pulling them up to fill gaps.
 
 ```tsx
-import { MasonryGrid, Frame } from '@masonry-grid/react'
+import { RegularMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/react'
 
 <MasonryGrid
   frameWidth={200}
@@ -36,9 +36,9 @@ import { MasonryGrid, Frame } from '@masonry-grid/react'
 Balanced masonry layout that reorders items inside rows to minimize overall grid height.
 
 ```tsx
-import { BalancedMasonryGrid, Frame } from '@masonry-grid/react'
+import { BalancedMasonryGrid as MasonryGrid, Frame } from '@masonry-grid/react'
 
-<BalancedMasonryGrid
+<MasonryGrid
   frameWidth={200}
   gap={10}
 >
@@ -46,12 +46,12 @@ import { BalancedMasonryGrid, Frame } from '@masonry-grid/react'
     <img src='...' />
   </Frame>
   {/* more frames... */}
-</BalancedMasonryGrid>
+</MasonryGrid>
 ```
 
 ### Props
 
-Same as `MasonryGrid`.
+Same as `RegularMasonryGrid`.
 
 ## Frame
 
@@ -76,17 +76,64 @@ import { Frame } from '@masonry-grid/react'
 - `as?: ElementType` - Render as a different element (default: `'div'`).
 - All other HTML attributes are passed through.
 
+## SpannedMasonryGrid
+
+Experemental CSS-only masonry layout that uses `grid-row: span x` to create masonry effect.
+
+```tsx
+import { SpannedMasonryGrid as MasonryGrid, SpannedFrame as Frame } from '@masonry-grid/react'
+
+<MasonryGrid
+  frameWidth={200}
+  gap={10}
+>
+  <Frame width={4} height={3}>
+    <img src='...' />
+  </Frame>
+  {/* more frames... */}
+</MasonryGrid>
+```
+
+### Props
+
+Same as `RegularMasonryGrid`, with an additional props:
+
+- `precision?: number` - Precision for span calculation (default: `10`). Affects how accurately frames will maintain their aspect ratios. Higher precision results in more accurate sizes but may impact performance and cause bugs in some browsers.
+- `innerStyle?: CSSProperties` - Additional styles applied to the inner container that holds the frames.
+
+## SpannedFrame
+
+Component for defining spanned masonry grid item with aspect ratio.
+
+```tsx
+import { SpannedFrame as Frame } from '@masonry-grid/react'
+
+<Frame
+  width={16}
+  height={9}
+  as='li'
+>
+  <img src='...' />
+</Frame>
+```
+
+### Props
+
+Same as `Frame`, with an additional prop:
+
+- `innerStyle?: CSSProperties` - Additional styles applied to the inner container that holds the content.
+
 ## useMasonryGrid
 
 Hook for advanced use cases when you need direct access to the masonry grid instance.
 
 ```tsx
 import { useMasonryGrid } from '@masonry-grid/react'
-import { MasonryGrid as VanillaMasonryGrid } from '@masonry-grid/vanilla'
+import { RegularMasonryGrid } from '@masonry-grid/vanilla'
 
 function CustomGrid() {
   const containerRef = useMasonryGrid<HTMLDivElement>({
-    type: VanillaMasonryGrid
+    type: RegularMasonryGrid
   })
 
   return (

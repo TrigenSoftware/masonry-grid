@@ -5,7 +5,7 @@ sidebar:
   order: 3
 ---
 
-## MasonryGrid
+## RegularMasonryGrid
 
 It uses [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/ResizeObserver) and [MutationObserver](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) to monitor changes to the container and its items. When a change is detected, it recalculates the layout using aspect ratios defined by `--width` and `--height` CSS variables on each item. Then it applies vertical translations using `transform: translateY()` to pull items up and fill gaps, while maintaining the natural order of items in the DOM. Because of we know the aspect ratios, and translate values are calculated in percentages, resizing the container without changing columns count does not require recalculating the layout.
 
@@ -24,7 +24,7 @@ It uses [ResizeObserver](https://developer.mozilla.org/en-US/docs/Web/API/Resize
 
 ## BalancedMasonryGrid
 
-Same as MasonryGrid, plus it reorders items within each row to minimize overall grid height. It does this by calculating the optimal order of items in each row based on their heights and adjusting their `order` CSS property accordingly without changing order of items in the DOM.
+Same as RegularMasonryGrid, plus it reorders items within each row to minimize overall grid height. It does this by calculating the optimal order of items in each row based on their heights and adjusting their `order` CSS property accordingly without changing order of items in the DOM.
 
 ```html
 <div class="masonry" style="height: 405.228px;">
@@ -39,3 +39,40 @@ Same as MasonryGrid, plus it reorders items within each row to minimize overall 
 </div>
 ```
 
+## SpannedMasonryGrid
+
+Experemental CSS-only masonry layout that based on CSS Grid with `grid-row: span calc(var(--height) / var(--width) * var(--precision))` for each frame. Frames are balanced like in BalancedMasonryGrid.
+
+Pros:
+- No JavaScript required for layout
+- Works with server-side rendering (SSR) and static site generators (SSG)
+
+Cons:
+- Frames cannot strictly maintain their aspect ratios due to using `grid-row: span ...` trick
+- You can increase aspect ratios precision, but higher values can cause bugs in some browsers
+- Can't use `gap` CSS property, forced to use workaround
+
+```html
+<div style="--frame-width: 200px; --gap: 10px; --precision: 10">
+  <div style="display: grid; clip-path: margin-box; margin: calc(-1 * var(--gap, 0) / 2); grid-template-columns: repeat(auto-fill, minmax(var(--frame-width), 1fr))">
+    <div style="--width: 1; --height: 1; aspect-ratio: var(--width) / var(--height); width: 100%; height: 100%; position: relative; grid-row: span calc(var(--height) / var(--width) * var(--precision))">
+      <div style="position: absolute; inset: calc(var(--gap, 0) / 2)"></div>
+    </div>
+    <div style="--width: 3; --height: 2; /* ... */">
+      <div style="/* ... */"></div>
+    </div>
+    <div style="--width: 1; --height: 1; /* ... */">
+      <div style="/* ... */"></div>
+    </div>
+    <div style="--width: 3; --height: 2; /* ... */">
+      <div style="/* ... */"></div>
+    </div>
+    <div style="--width: 1; --height: 1; /* ... */">
+      <div style="/* ... */"></div>
+    </div>
+    <div style="--width: 3; --height: 2; /* ... */">
+      <div style="/* ... */"></div>
+    </div>
+  </div>
+</div>
+```
