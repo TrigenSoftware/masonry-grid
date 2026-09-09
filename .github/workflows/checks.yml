@@ -17,7 +17,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
@@ -46,7 +46,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
       - name: Check package.json files
         run: pnpm --package=@trigen/lint-package-json dlx lint-package-json --monorepo --ignore sandboxes
@@ -63,7 +63,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
@@ -82,7 +82,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version: 24
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
