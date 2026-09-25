@@ -69,15 +69,15 @@
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.2",
     "@storybook/addon-essentials": "^8.6.14",
-    "@storybook/html": "^9.1.13",
-    "@storybook/html-vite": "^9.1.13",
+    "@storybook/html": "^10.0.0",
+    "@storybook/html-vite": "^10.0.0",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.0.0",
     "playwright": "^1.56.0",
     "size-limit": "^11.1.2",
-    "storybook": "^9.1.13",
+    "storybook": "^10.0.0",
     "typescript": "^5.3.3",
     "vite": "^7.0.0",
     "vitest": "^3.0.0"
